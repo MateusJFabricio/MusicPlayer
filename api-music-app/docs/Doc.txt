@@ -1,0 +1,73 @@
+/music/
+    Verbo: GET
+    Return: Retorna todas as musicas do DB
+
+/music/loadMusic/:id
+    Verbo: GET
+    Parameter: Id da musica
+    Return: Retorna o arquivo de audio da musica selecionada
+
+/music/loadPicture/:id
+    Verbo: GET
+    Parameter: Id da musica
+    Return: Retorna o arquivo de imagem do album da musica selecionada
+
+/music/:id
+    Verbo: GET
+    Parameter: Id da musica
+    Return: Retorna as informações da musica
+
+/music/name/:name
+    Verbo: GET
+    Parameter: nome da musica
+    Return: Retorna uma musica com o nome exato passado por parametro
+
+/music/search/:name
+    Verbo: GET 
+    Parameter: nome da musica
+    Return: Retorna um array de musicas que correspondem a busca
+
+/music/artist/:name
+    Verbo: GET
+    Parameter: nome do artista
+    Return: Retorna as musicas correspondente ao artista
+
+/music/artist/search/:name
+    Verbo: GET
+    Parameter: nome do artista
+    Return: Retorna um array de artistas que correspondem a busca
+
+/music/genre/:genre
+    Verbo: GET
+    Parameter: genero
+    Return: Retorna um array de musicas com o exato genero
+
+/music/genre/search/:genre
+    Verbo: GET
+    Parameter: genero
+    Return: Retorna um array de musicas que correspondem a busca
+
+/music/
+    Ação: Insere um novo registro de musica no DB
+    Verbo: POST
+    Body: JSON com a estrutura da musica
+    Return: Retorna a musica criada
+
+
+/music/:id
+    Ação: Update de uma musica
+    Verbo: PATCH
+    Body: JSON com a estrutura da musica
+    Return: Retorna a musica
+
+/music/picture/:id
+    Ação: Insere ou atualiza a imagem de um album no banco de dados
+    Verbo: POST
+    Body: JSON com a chave "path" preenchido com o caminho da musica
+    Return: Retorna o registro da imagem
+
+/music/:id
+    Ação: Remove um registro do banco de dados
+    Verbo: DELETE
+    Parameter: Id da musica
+    Return: Retorna o registro da musica removida
