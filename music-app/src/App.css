@@ -1,0 +1,12 @@
+.container{
+    height: 100vh;
+    min-width: 1200px;
+    display: block;
+}
+
+.pages{
+    position: fixed;
+    top: 70px;
+    bottom: 100px;
+    width: 100%;
+}

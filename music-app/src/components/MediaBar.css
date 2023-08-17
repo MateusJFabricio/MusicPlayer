@@ -1,0 +1,112 @@
+.media-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #272424;
+    height: 100px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    min-width: 1200px;
+    right: 0px;
+    left: 0px;
+  }
+  
+  .media-bar .progress-bar {
+    display: flex;
+    align-items: center;
+    align-self: stretch;
+    flex: 0 0 auto;
+    position: relative;
+    width: 100%;
+    height: 20px;
+  }
+  
+  .media-bar .text-wrapper {
+    color: white;
+    font-family: "Inter-Regular", Helvetica;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+    position: relative;
+    text-align: center;
+    width: 10%;
+  }
+  
+  .media-bar .frame {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+  }
+  
+  .media-bar .overlap-group {
+    height: 10px;
+    position: relative;
+    background-color: rgb(57, 57, 146);
+    width: 100%;
+  }
+
+  .media-bar .music-controls {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-self: stretch;
+    padding: 5px 50px 5px 20px;
+    position: relative;
+    width: 100%;
+  }
+  
+  .media-bar .music-details {
+    height: 55px;
+    position: relative;
+    width: 20%;
+  }
+  
+  .media-bar .album-picture-container {
+    height: 100%;
+    width: 30%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .media-bar .album-picture {
+    height: 100%;
+    position: absolute;
+    border-radius: 5px;
+  }
+  
+  .media-bar .music-details-info {
+    font-family: "Inter-Bold", Helvetica;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 0px;
+    left: 60px;
+    width: 70%;
+  }
+  
+  .media-bar .controls {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 70%;
+  }
+  
+  .media-bar .play {
+    height: 100%;
+    width: 50px;
+    position: relative;
+  }
+
+  .media-bar .next {
+    height: 100%;
+    width: 50px;
+    position: relative;
+  }
