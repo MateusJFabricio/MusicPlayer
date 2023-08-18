@@ -1,0 +1,32 @@
+.search-item{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    width: 90%;
+    height: 55px;
+    margin: 0;
+}
+
+.search-item-musicname{
+    position: absolute;
+    left: 80px;
+    width: 80%;
+    height: 20px;
+    top: 0;
+}
+
+.search-item-artist{
+    position: absolute;
+    top: 25px;
+    left: 80px;
+    width: 80%;
+    height: 20px;
+}
+
+.search-item-image{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+}

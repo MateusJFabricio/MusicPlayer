@@ -6,7 +6,7 @@ const MainPage = () => {
   return (
         <div className='mainpage-container'>
             <div className="mainpage-lateral">
-              <div className="mainpage-queue-title">Sequência de Músicas</div>
+              {/* <div className="mainpage-queue-title">Sequência de Músicas</div>
               <ul className="mainpage-queue">
                 <li>
                   <MusicQueueDetails/>
@@ -32,9 +32,7 @@ const MainPage = () => {
                 <li>
                   <MusicQueueDetails/>
                 </li>
-                <li>
-                  <MusicQueueDetails/>
-                </li>
+
                 <li>
                   <MusicQueueDetails/>
                 </li>
@@ -48,7 +46,7 @@ const MainPage = () => {
                   <MusicQueueDetails/>
                 </li>
                 
-              </ul>
+              </ul> */}
             </div>
             <div className="mainpage-album-picture-container">
               <img className='mainpage-album-picture' src={albumImage} alt="Album Picture" />
