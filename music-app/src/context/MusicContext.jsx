@@ -3,7 +3,17 @@ import { createContext, useState } from "react";
 export const MusicContext = createContext();
 
 export const MusicContextProvider = ({children})=>{
-    const [musicQueue, setMusicQueue] = useState([{id: 1, name: "musica 1"},{id: 1, name: "musica 1"},{id: 1, name: "musica 1"},{id: 1, name: "musica 1"},{id: 1, name: "musica 1"},{id: 1, name: "musica 1"},{id: 1, name: "musica 1"}, {id: 2, name: "musica 2"},{id: 3, name: "musica 2"},{id: 1, name: "musica 1"}, {id: 2, name: "musica 2"},{id: 3, name: "musica 2"},{id: 1, name: "musica 1"}, {id: 2, name: "musica 2"},{id: 3, name: "musica 2"},{id: 1, name: "musica 1"},])
+    //Remove isso depois pelo amor de Deus
+    let umArrayPraAgora = []
+    for(let i = 1; i <20; i++){
+        const music = {
+            id: i,
+            nome: "Musica" + i
+        }
+        umArrayPraAgora.push(music)
+    }
+
+    const [musicQueue, setMusicQueue] = useState(umArrayPraAgora)
 
     return(
         <MusicContext.Provider value={{musicQueue, setMusicQueue}}>

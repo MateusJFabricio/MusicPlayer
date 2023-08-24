@@ -26,7 +26,7 @@ const MusicSearchPage = () => {
         }
       }
   
-  }, [])
+  }, [search])
   
 
   return (

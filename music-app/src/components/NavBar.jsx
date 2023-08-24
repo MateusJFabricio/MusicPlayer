@@ -38,11 +38,18 @@ const NavBar = () => {
   const handleLogoClick = ()=>{
     navigate("/")
   }
-
+  const handleInputKeyDown = (e)=>{
+    if(e.key === "Enter"){
+      handleIRButton();
+    }
+  }
   const handleIRButton = ()=>{
-    setInputSearchValue("")
-    setMusicResults([])
-    navigate("/musicsearch/search:" + inputSearchValue)
+    if (inputSearchValue && inputSearchValue.length > 0)
+    {
+      setInputSearchValue("")
+      setMusicResults([])
+      navigate("/musicsearch/search:" + inputSearchValue, {replace: true})
+    }
   }
 
   const handleOnBlurInput = ()=>{
@@ -60,7 +67,15 @@ const NavBar = () => {
           <div className="search-bar-icon">
             <img alt="Search Icon" src={SearchIcon} />
           </div>
-          <input value={inputSearchValue||''} onBlur={handleOnBlurInput} onChange={(e)=>handleChangeSearchInput(e.target.value)} className="search-bar-input" type="text" placeholder="Busque as suas musicas digitando aqui..."/>
+          <input
+            onBlur={handleOnBlurInput}
+            onChange={(e)=>handleChangeSearchInput(e.target.value)}
+            onKeyDown={handleInputKeyDown}
+            value={inputSearchValue||''} 
+            className="search-bar-input" 
+            type="text" 
+            placeholder="Busque as suas musicas digitando aqui..."
+          />
           <button className="botao-pesquisar" onClick={handleIRButton}>IR</button>
           <div className="search-suggestions">
             <ul>
