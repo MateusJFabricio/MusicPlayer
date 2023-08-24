@@ -1,0 +1,29 @@
+.musicdetails-container{
+
+}
+
+.musicdetails-picturecontainer {
+    height: 100%;
+    width: 30%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .musicdetails-picture {
+    height: 100%;
+    position: absolute;
+    border-radius: 5px;
+  }
+  
+  .musicdetails-infocontainer {
+    font-family: "Inter-Bold", Helvetica;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 0px;
+    left: 60px;
+    width: 70%;
+  }

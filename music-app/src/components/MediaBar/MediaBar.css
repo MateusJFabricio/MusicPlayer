@@ -1,4 +1,4 @@
-.media-bar {
+.mediabar-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -12,7 +12,7 @@
     left: 0px;
   }
   
-  .media-bar .progress-bar {
+  .mediabar-progressinfo {
     display: flex;
     align-items: center;
     align-self: stretch;
@@ -22,7 +22,19 @@
     height: 20px;
   }
   
-  .media-bar .text-wrapper {
+  .mediabar-infoinit {
+    color: white;
+    font-family: "Inter-Regular", Helvetica;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+    position: relative;
+    text-align: center;
+    width: 10%;
+  }
+
+  .mediabar-infoend {
     color: white;
     font-family: "Inter-Regular", Helvetica;
     font-size: 12px;
@@ -34,7 +46,7 @@
     width: 10%;
   }
   
-  .media-bar .frame {
+  .mediabar-container .frame {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -42,14 +54,14 @@
     width: 80%;
   }
   
-  .media-bar .overlap-group {
+  .mediabar-container .overlap-group {
     height: 10px;
     position: relative;
     background-color: rgb(57, 57, 146);
     width: 100%;
   }
 
-  .media-bar .music-controls {
+  .mediabar-container .music-controls {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -59,38 +71,14 @@
     width: 100%;
   }
   
-  .media-bar .music-details {
+  .mediabar-container .music-details {
     height: 55px;
     position: relative;
     width: 20%;
   }
   
-  .media-bar .album-picture-container {
-    height: 100%;
-    width: 30%;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-  .media-bar .album-picture {
-    height: 100%;
-    position: absolute;
-    border-radius: 5px;
-  }
   
-  .media-bar .music-details-info {
-    font-family: "Inter-Bold", Helvetica;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    top: 0px;
-    left: 60px;
-    width: 70%;
-  }
-  
-  .media-bar .controls {
+  .mediabar-container .controls {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -99,13 +87,13 @@
     width: 70%;
   }
   
-  .media-bar .play {
+  .mediabar-container .play {
     height: 100%;
     width: 50px;
     position: relative;
   }
 
-  .media-bar .next {
+  .mediabar-container .next {
     height: 100%;
     width: 50px;
     position: relative;

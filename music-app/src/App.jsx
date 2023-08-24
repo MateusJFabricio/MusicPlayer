@@ -1,5 +1,5 @@
 import './App.css'
-import MediaBar from './components/MediaBar'
+import MediaBar from './components/MediaBar/MediaBar'
 import MenuLateral from './components/MenuLateral/MenuLateral'
 import NavBar from './components/NavBar'
 

@@ -1,13 +1,18 @@
 import './MusicQueueDetails.css'
-import capa from '../assets/akon-album.jpg'
+import noteIcon from '../assets/noteicon.png'
 
-const MusicQueueDetails = () => {
+const MusicQueueDetails = ({music}) => {
+
+  if (typeof music.picture === "undefined"){
+    console.log("Passei")
+    music.picture = noteIcon
+  }
     return (
       <div className='music-queue-details'>
-        <div className="queue-music-name">Gangsta Bop</div>
-        <div className="queue-artist">Akon</div>
-        <div className='queue-time'>2:59</div>
-        <img className="queue-capa" alt="Capa" src={capa} />
+        <div className="queue-music-name">{music.name}</div>
+        <div className="queue-artist">{music.artist}</div>
+        <div className='queue-time'>02:59</div>
+        <img className="queue-capa" alt="Capa" src={music.picture} />
       </div>
     );
   };
