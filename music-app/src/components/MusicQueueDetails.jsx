@@ -4,7 +4,6 @@ import noteIcon from '../assets/noteicon.png'
 const MusicQueueDetails = ({music}) => {
 
   if (typeof music.picture === "undefined"){
-    console.log("Passei")
     music.picture = noteIcon
   }
     return (

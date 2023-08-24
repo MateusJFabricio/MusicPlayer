@@ -53,12 +53,11 @@
     justify-content: center;
     width: 80%;
   }
-  
-  .mediabar-container .overlap-group {
+  .mediabar-slider{
     height: 10px;
+    width: 100%;
     position: relative;
     background-color: rgb(57, 57, 146);
-    width: 100%;
   }
 
   .mediabar-container .music-controls {

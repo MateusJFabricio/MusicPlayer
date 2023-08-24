@@ -6,7 +6,7 @@ import './MenuLateral.css'
 
 const MenuLateral = () => {
     let idList = 0;
-    const {musicStack} = useContext(MusicContext)
+    const {musicStack, setMusicStack} = useContext(MusicContext)
 
     return (
         <div className="menulateral">

@@ -8,12 +8,24 @@ import {MusicContext} from '../../context/MusicContext'
 
 const MediaBar = () => {
   const URL_API = "http://localhost:3000/"
+  const [currentFormatTime, setCurrentFormatTime] = useState("00:00")
+  const [durationFormatted, setDurationFormatted] = useState("00:00")
+  const [currentTime, setCurrentTime] = useState(0)
+  const [duration, setDuration] = useState(0)
   const [audio, setAudio] = useState()
   const [playing, setPlaying] = useState(false)
   const {musicStack, setMusicStack} = useContext(MusicContext)
+  const [currentMusic, setCurrentMusic] = useState()
+  const [sliderMousePosition, setSliderMousePosition] = useState(0)
   let musicUrl = null
   const audioRef = createRef();
-
+  
+  useEffect(() => {
+    if (!playing && (typeof currentMusic === 'undefined' || currentMusic === null)){
+      loadMusic()
+    }
+  }, [musicStack])
+  
   const loadMusicStream = async (id)=>{
     try {
       const blob = await fetch(URL_API + "music/loadmusic/" + id)
@@ -28,23 +40,30 @@ const MediaBar = () => {
 
   }
 
-  const handlePlayPause = async()=>{
-    if (!musicStack || musicStack.lenght === 0){
+  useEffect(()=>{
+    if (currentMusic){
+      const loadStream = async () => { setAudio(await loadMusicStream(currentMusic._id))}
+      loadStream()
+    }
+      
+  }, [currentMusic])
+
+  const loadMusic = ()=>{
+
+    if (musicStack.lenght === 0){
       return
     }
     
-    if (!audio){
-      const aux = await loadMusicStream(musicStack[0]._id)
-      setAudio(aux)
-      return 
-    }
+    setCurrentMusic(musicStack[0])
+  }
+  const handlePlayPause = async()=>{
     if (!playing){
       handlePlay()
     }else{
       handlePause()
     }
   }
-
+  
   const handlePlay = () => {
     audioRef.current.play()
     setPlaying(true)
@@ -56,28 +75,54 @@ const MediaBar = () => {
   }
 
   const handleTimeUpdate = () => {
-    // this.setState({
-    //   currentTime: this.audioRef.current.currentTime,
-    //   duration: this.audioRef.current.duration
-    // })
+      setCurrentTime(audioRef.current.currentTime)
+      setDuration(audioRef.current.duration)
+      setCurrentFormatTime(formatTime(audioRef.current.currentTime))
+      setDurationFormatted(formatTime(audioRef.current.duration))
+  }
+
+  const formatTime = (seconds)=> {
+    let minutes = Math.floor(seconds / 60);
+    minutes = (minutes >= 10) ? minutes : "0" + minutes;
+    seconds = Math.floor(seconds % 60);
+    seconds = (seconds >= 10) ? seconds : "0" + seconds;
+    return minutes + ":" + seconds;
   }
 
   const handleMusicEnded = ()=>{
-    console.log("A musica acabou")
+    setPlaying(false)
+    setCurrentMusic(null)
+    const stack = musicStack.slice(1)
+    setMusicStack(stack)
+    setAudio(null)
+    audioRef.current.load()
   }
-
+  const handleSliderMouseMove = (e)=>{
+    const mouseAbsolutePosition = e.clientX - e.target.offsetLeft
+    const mousePosition = (parseInt(e.target.max,10) / e.target.clientWidth) *  mouseAbsolutePosition;
+    setSliderMousePosition(mousePosition)
+  }
+  const handleSliderClick = ()=>{
+    audioRef.current.currentTime = sliderMousePosition
+  }
   return (
     <div className="mediabar-container">
-      <audio ref={audioRef} onTimeUpdate={handleTimeUpdate} onEnded={handleMusicEnded} src={audio} autoPlay controls/>
+      <audio onLoadedData={handlePlay} ref={audioRef} onTimeUpdate={handleTimeUpdate} onEnded={handleMusicEnded} src={audio} />
       {/* Media bar progress */}
       <div className="mediabar-progressinfo">
-        <div className="mediabar-infoinit">02:56</div>
-        {/* Progress Bar - TODO */}
+        <div className="mediabar-infoinit">{currentFormatTime}</div>
         <div className="frame">
-          <div className="overlap-group"></div>
+          {
+            currentMusic?
+            <input 
+              className="mediabar-slider" 
+              onClick={handleSliderClick} 
+              onMouseMove={handleSliderMouseMove} 
+              type="range" min="0" max={duration} value={currentTime} id="progressSlider" title="progressSlider" placeholder="slider"/>:
+            <input className="mediabar-slider" type="range" min="0" max="0" value="0" id="progressSlider" title="progressSlider" placeholder="slider"/>
+          }
         </div>
-        {/* End TODO */}
-        <div className="mediabar-infoend">03:56</div>
+        <div className="mediabar-infoend">{durationFormatted}</div>
       </div>
       {/* Media bar controls */}
       <div className="music-controls">
@@ -90,7 +135,7 @@ const MediaBar = () => {
           </div>
           <div className="next">
             <div className="overlap-group-2">
-              <img alt="Next Music" src={nextIcon} />
+              <img alt="Next Music" onClick={handleMusicEnded} src={nextIcon} />
             </div>
           </div>
         </div>
