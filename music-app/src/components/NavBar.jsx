@@ -77,7 +77,7 @@ const NavBar = () => {
             placeholder="Busque as suas musicas digitando aqui..."
           />
           <button className="botao-pesquisar" onClick={handleIRButton}>IR</button>
-          <div className="search-suggestions">
+          <div className={musicResults.length > 0 ? "search-suggestions" : "search-suggestions hidden"}>
             <ul>
               {
                 musicResults.map((music)=>(

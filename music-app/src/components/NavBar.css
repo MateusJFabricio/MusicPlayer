@@ -92,7 +92,10 @@
     right: 0;
     top: 51px;
     width: 100%;
-    background-color: #4a4a4a92;
+    background-color: #4a4a4a;
+  }
+  .hidden{
+    display: none;  
   }
   .search-suggestions ul{
     list-style-type: none;
