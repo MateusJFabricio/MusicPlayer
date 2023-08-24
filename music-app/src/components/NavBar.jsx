@@ -35,6 +35,10 @@ const NavBar = () => {
     navigate("/musicsearch/id:" + music._id)
   }
 
+  const handleLogoClick = ()=>{
+    navigate("/")
+  }
+
   const handleIRButton = ()=>{
     setInputSearchValue("")
     setMusicResults([])
@@ -48,8 +52,8 @@ const NavBar = () => {
   return (
     <div className="nav-bar">
       <div className="logo">
-        <img className="logo-image" alt="Logo" src={Logo} />
-        <span>GeraldoPlayer</span>
+        <img onClick={handleLogoClick} className="logo-image" alt="Logo" src={Logo} />
+        <span onClick={handleLogoClick}>GeraldoPlayer</span>
       </div>
       <div className="search-bar">
         <div className="search-bar-frame">
