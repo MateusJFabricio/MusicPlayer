@@ -11,6 +11,7 @@ const MusicSearchPage = () => {
       //Realiza a busca no banco de dados
       if (search.length > 0)
       {
+        //Se a musica inicia com Search
         if (search.startsWith("search"))
         {
           const wordSearch  = search.substring(search.indexOf(":") + 1)
@@ -24,6 +25,21 @@ const MusicSearchPage = () => {
           }
           
         }
+
+        //Se a musica inicia com ID
+        if (search.startsWith("id"))
+        {
+          const wordSearch  = search.substring(search.indexOf(":") + 1)
+          if (wordSearch)
+          {
+            fetch(URL_API + "music/" + wordSearch)
+            .then(response => response.json())
+            .then(data => {
+              setMusicResults(data)
+            })
+          }
+        }
+
       }
   
   }, [search])

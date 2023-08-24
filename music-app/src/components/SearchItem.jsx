@@ -1,9 +1,13 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import noteIcon from '../assets/noteicon.png'
 import './SearchItem.css'
 
-const SearchItem = ({music, handleClick}) => {
+const SearchItem = ({music,mouseOverUp, handleClick}) => {
   const [mouseOver, setMouseOver] = useState(false)
+  
+  useEffect(() => {
+    mouseOverUp(mouseOver)
+  }, [mouseOver])
   
   return (
     <div 

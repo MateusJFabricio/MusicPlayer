@@ -14,6 +14,7 @@ const NavBar = () => {
 
   const [musicResults, setMusicResults] = useState([])
   const [inputSearchValue, setInputSearchValue] = useState()
+  const [suggestionItemMouseOver, setSuggestionItemMouseOver] = useState(false)
 
   const handleChangeSearchInput = (value)=>{
       setInputSearchValue(value)
@@ -33,6 +34,7 @@ const NavBar = () => {
 
   const handleListedMusicClick = (music)=>{
     navigate("/musicsearch/id:" + music._id)
+    setMusicResults([])
   }
 
   const handleLogoClick = ()=>{
@@ -53,7 +55,10 @@ const NavBar = () => {
   }
 
   const handleOnBlurInput = ()=>{
-    setMusicResults([])
+    if (!suggestionItemMouseOver)
+    {
+      setMusicResults([])
+    }
   }
 
   return (
@@ -82,7 +87,12 @@ const NavBar = () => {
               {
                 musicResults.map((music)=>(
                   <li key={music._id}>
-                    <SearchItem className="search-suggestions-item" music={music} handleClick={handleListedMusicClick}/>
+                    <SearchItem 
+                      className="search-suggestions-item" 
+                      music={music}
+                      mouseOverUp = {setSuggestionItemMouseOver}
+                      handleClick={handleListedMusicClick}
+                    />
                   </li>
                 ))
               }
