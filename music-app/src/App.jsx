@@ -1,7 +1,10 @@
 import './App.css'
 import MediaBar from './components/MediaBar'
 import NavBar from './components/NavBar'
-import MainPage from './pages/MainPage/MainPage'
+
+//Rotas
+import { Outlet } from 'react-router-dom'
+
 
 function App() {
 
@@ -9,7 +12,7 @@ function App() {
     <>
       <div className='container'>
         <div className="pages">
-          <MainPage/>
+          <Outlet/>
         </div>
         <NavBar/>
         <MediaBar/>
