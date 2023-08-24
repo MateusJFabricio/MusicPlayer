@@ -1,0 +1,38 @@
+.menulateral{
+    position: relative;
+    top: 66px;
+    height: calc(100% - 166px);
+    width: 400px;
+    min-width: 400px;
+    
+
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    
+    border-right: solid;
+    border-color: rgb(38, 38, 38);
+    border-width: 1px;
+    background-color: black;
+
+    overflow-y: auto;
+}
+
+.menulateral-queue-title{
+    text-align: center;
+    font-size: 30px;
+    position: relative;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.menulateral-queue {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    list-style-type: none;
+    margin: 0;
+    margin-block: 0;
+    margin-inline: 0;
+    padding-inline-start: 0;
+}

@@ -1,5 +1,6 @@
 import './App.css'
 import MediaBar from './components/MediaBar'
+import MenuLateral from './components/MenuLateral/MenuLateral'
 import NavBar from './components/NavBar'
 
 //Rotas
@@ -14,6 +15,7 @@ function App() {
         <div className="pages">
           <Outlet/>
         </div>
+        <MenuLateral/>
         <NavBar/>
         <MediaBar/>
       </div>

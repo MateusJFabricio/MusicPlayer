@@ -10,7 +10,7 @@ const MainPage = () => {
 
   return (
         <div className='mainpage-container'>
-            <div className="mainpage-lateral">
+            {/* <div className="mainpage-lateral">
               <div className="mainpage-queue-title">Sequência de Músicas</div>
               <ul className="mainpage-queue">{
                 musicQueue.map((music)=>(
@@ -19,7 +19,7 @@ const MainPage = () => {
                   </li>
                   ))}
                 </ul>
-            </div>
+            </div> */}
             <div className="mainpage-album-picture-container">
               <img className='mainpage-album-picture' src={albumImage} alt="Album Picture" />
             </div>

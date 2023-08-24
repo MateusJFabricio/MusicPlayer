@@ -5,9 +5,11 @@
     gap: 10px;
     height: 66px;
     position: fixed;
+    top: 0px;
     width: 100%;
     right: 0px;
     left: 0px;
+    min-width: 1200px;
   }
   
   .logo {

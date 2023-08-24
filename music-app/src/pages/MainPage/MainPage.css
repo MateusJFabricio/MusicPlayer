@@ -4,40 +4,7 @@
     position: relative;
     width: 100%;
     height: 100%;
-}
-
-.mainpage-lateral{
-    position: relative;
-    top: 0;
-    width: 400px;
-    min-width: 400px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    border-right: solid;
-    border-color: rgb(38, 38, 38);
-    border-width: 1px;
-    overflow: auto;
-}
-
-.mainpage-queue-title{
-    text-align: center;
-    font-size: 30px;
-    position: relative;
-    width: 100%;
-    margin-bottom: 30px;
-}
-
-.mainpage-queue {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    list-style-type: none;
-    margin: 0;
-    margin-block: 0;
-    margin-inline: 0;
-    padding-inline-start: 0;
+    min-width: 800px;
 }
 
 .mainpage-album-picture-container{
@@ -51,8 +18,10 @@
 }
 
 .mainpage-album-picture{
+    position: relative;
     padding: 20px;
     border-radius: 20px;
+    overflow: hidden;
 }
 
 ::placeholder {
