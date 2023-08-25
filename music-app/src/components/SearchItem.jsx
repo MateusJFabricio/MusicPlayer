@@ -4,7 +4,7 @@ import './SearchItem.css'
 
 const SearchItem = ({music,mouseOverUp, handleClick}) => {
   const [mouseOver, setMouseOver] = useState(false)
-  
+ 
   useEffect(() => {
     mouseOverUp(mouseOver)
   }, [mouseOver])
@@ -32,7 +32,7 @@ const SearchItem = ({music,mouseOverUp, handleClick}) => {
           onMouseEnter={()=>setMouseOver(true)} 
           onMouseOut={()=>setMouseOver(false)}
           onClick={()=>handleClick(music)} 
-          className="search-item-image" alt="Capa" src={noteIcon} 
+          className="search-item-image" alt="Capa" src={music.image} 
         />
     </div>
   )

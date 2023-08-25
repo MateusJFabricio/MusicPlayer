@@ -22,7 +22,8 @@ const NavBar = () => {
       //Realiza a busca no banco de dados
       if (value.length >= 3)
       {
-        fetch(URL_API + "music/artist/search/" + value)
+        // fetch(URL_API + "music/artist/search/" + value)
+        fetch(URL_API + "music/name/search/" + value)
         .then(response => response.json())
         .then(data => {
           setMusicResults(data.slice(0, 3))

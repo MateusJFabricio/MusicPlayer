@@ -1,8 +1,6 @@
 const utils = require("../utils/utils")
-const {Music, SCHEMA} = require('../models/Music')
-const {Image} = require('../models/Images')
+const {Music} = require('../models/Music')
 const router = require('express').Router()
-var jsonValidate = require('jsonschema').Validator;
 var fs = require('fs');
 
 router.get("/", async (req, res)=>{
@@ -23,22 +21,6 @@ router.get("/loadMusic/:id", async (req, res)=>{
             throw new Error("Id not found. ID: " + id);
         }
         res.download(music.path, 'music.mp3')
-        
-    } catch (error) {
-        res.status(500).json({error: error})
-    }
-})
-router.get("/loadPicture/:id", async (req, res)=>{
-    try {              
-        const id = req.params.id
-        const image = await Image.findOne({music_id: id});
-
-        if (!image === 0)
-        {
-            throw new Error("Id not found. ID: " + id);
-        }
-        res.writeHead(200, {'Content-Type': 'image/jpeg', 'Content-Length': image.img.data.length});
-        res.end(image.img.data);
         
     } catch (error) {
         res.status(500).json({error: error})
@@ -122,60 +104,63 @@ router.get("/genre/search/:genre", async (req, res)=>{
         res.status(500).json({error: error})
     }
 })
-router.post("/picture/:id", async (req, res)=>{
-    try {
-        const id = req.params.id
-        const path = req.body["path"]
-        const pic = fs.readFileSync(path)
 
-        let image = await Image.findOne({music_id: id});
-        if (!image){
-            image = new Image();
-            image.music_id = id
-            image.img.data = pic
-            image.img.contentType = 'image/png';
-            const newReg = image.save()
-            res.status(200).json(newReg)
-        }else{
-            image.img.data = pic
-            image.img.contentType = 'image/png';
-            //Faz o update
-            const updatedImage = await Image.updateOne({_id: image._id}, image)
-            res.status(200).json(updatedImage)
-        }
-    } catch (error) {
-        res.status(500).json({error: error})
-    }
-})
 router.post('/', async (req, res)=>{
 
-    const musica = req.body
+    const musicPostArray = req.body
+    
+    try{
+        //Itera no array
+        musicPostArray.map((musicBody)=>{
+            const pic = fs.readFileSync(musicBody["picture_path"], {encoding: 'base64'})
+            const string64 = "data:image/png;base64,"+ pic        
 
-    //Validacao antes do post
-    const jsonValidation = new jsonValidate();
-    const result = jsonValidation.validate(musica, SCHEMA)
-    if (result){
-        res.status(422).json(result.errors);
-        return;
-    }
+            const musica = new Music({
+                name: musicBody.name,
+                artist: musicBody.artist,
+                album: musicBody.album,
+                released: musicBody.released,
+                genre: musicBody.genre,
+                path: musicBody.path,
+                image: string64
+            })
 
-    //Persistir os dados
-    try {
-        const p = await Music.create(musica)
-        res.status(201).json(p);
-    } catch (error) {
+            //Validacao antes do post
+            const result = musica.validateSync()
+            if (result){
+                res.status(422).json(result.errors);
+                return;
+            }
+            const salvarMusica = async () => await musica.save()
+            salvarMusica()
+        })
+        res.status(201).json({mensagem: "Done"});
+    }catch(error){
         res.status(500).json({error: error});
     }
-
 })
 router.patch("/:id", async (req, res)=>{
     try {
         const id = req.params.id
         const musica = req.body
 
+        const pic = fs.readFileSync(musica["picture_path"])
+
+        const musicValidation = new Music({
+            name: musica.name,
+            artist: musica.artist,
+            album: musica.album,
+            released: musica.released,
+            genre: musica.genre,
+            path: musica.path,
+            image: {
+                "data": pic,
+                "contentType": 'image/png'
+            }
+        })
+
         //Validacao antes do post
-        const jsonValidation = new jsonValidate();
-        const result = jsonValidation.validate(musica, SCHEMA)
+        const result = musicValidation.validateSync()
         if (result){
             res.status(422).json(result.errors);
             return;
@@ -186,7 +171,7 @@ router.patch("/:id", async (req, res)=>{
 
         res.status(200).json(updatedMusic)
     } catch (error) {
-        res.status(500).json({error: error})
+        res.status(500).json({error: error.message})
     }
 })
 router.delete("/:id", async(req, res)=>{

@@ -1,27 +1,28 @@
 import React from 'react'
 import './MainPage.css'
-import albumImage from '../../assets/akon-album.jpg'
+import noteIcon from '../../assets/noteicon.png'
 import MusicQueueDetails from '../../components/MusicQueueDetails'
 import {MusicContext} from '../../context/MusicContext'
-import { useContext } from 'react'
+import { useContext, useState, useEffect } from 'react'
 
 const MainPage = () => {
-  const {musicQueue} = useContext(MusicContext)
+  const [musicImage, setMusicImage] = useState()
+  const {musicStack} = useContext(MusicContext)
 
+  useEffect(() => {
+    if (musicStack.length > 0){
+      setMusicImage(musicStack[0].image)
+    }else
+    {
+      setMusicImage(noteIcon)
+    }
+
+  }, [musicStack])
+  
   return (
         <div className='mainpage-container'>
-            {/* <div className="mainpage-lateral">
-              <div className="mainpage-queue-title">Sequência de Músicas</div>
-              <ul className="mainpage-queue">{
-                musicQueue.map((music)=>(
-                  <li key={music.id}>
-                    <MusicQueueDetails/>
-                  </li>
-                  ))}
-                </ul>
-            </div> */}
             <div className="mainpage-album-picture-container">
-              <img className='mainpage-album-picture' src={albumImage} alt="Album Picture" />
+              <img className='mainpage-album-picture' src={musicImage} alt="Album Picture" />
             </div>
         </div>
     

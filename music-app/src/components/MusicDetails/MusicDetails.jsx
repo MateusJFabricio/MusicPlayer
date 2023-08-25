@@ -7,13 +7,13 @@ const MusicDetails = ({music}) => {
         music = {
             name: "Selecione uma musica",
             artist: "",
-            capa: noteIcon
+            image: noteIcon
         }
     }
   return (
     <div className="musicdetails-container">
         <div className="musicdetails-picturecontainer">
-            <img className="musicdetails-picture" alt="Album" src={music.capa} />
+            <img className="musicdetails-picture" alt="Album" src={music.image} />
         </div>
         <div className="musicdetails-infocontainer">
             <p>{music.name}</p>

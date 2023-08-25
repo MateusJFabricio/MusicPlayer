@@ -11,7 +11,7 @@ const MusicQueueDetails = ({music}) => {
         <div className="queue-music-name">{music.name}</div>
         <div className="queue-artist">{music.artist}</div>
         <div className='queue-time'>02:59</div>
-        <img className="queue-capa" alt="Capa" src={music.picture} />
+        <img className="queue-capa" alt="Capa" src={music.image} />
       </div>
     );
   };

@@ -17,7 +17,7 @@
     Parameter: Id da musica
     Return: Retorna as informações da musica
 
-/music/name/:name
+/music/name/search/:name
     Verbo: GET
     Parameter: nome da musica
     Return: Retorna uma musica com o nome exato passado por parametro
