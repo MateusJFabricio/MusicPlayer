@@ -1,4 +1,43 @@
 .musiccard-container{
+    border-bottom: 1px solid rgba(255, 255, 255, 0.843);
     position: relative;
-    background-color: rgb(107, 104, 104);
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-right: 20px;
+    min-width: 800px;
+}
+.musiccard-musicname{
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    font-weight: bold;
+    width: 300px;
+}
+.musiccard-artist{
+    color: rgba(255, 255, 255, 0.787);
+    font-size: 19px;
+    width: 250px;
+}
+
+.musiccard-addbutton{
+    height: 50px;
+    border-radius: 25px;
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.477);
+}
+
+.musiccard-addbutton-on{
+    height: 50px;
+    border-radius: 25px;
+    background-color: blue;
+    border: 1px solid rgba(255, 255, 255, 0.477);
+}
+
+.musiccard-img{
+    width: 100px;
+}
+.musiccard-img img{
+    width: 60px;
+    border-radius: 30px;
 }

@@ -59,7 +59,7 @@ router.get("/name/search/:name", async (req, res)=>{
 
         res.status(200).json(music)
     } catch (error) {
-        res.status(500).json({error: error})
+        res.status(500).json({error: error.message})
     }
 })
 router.get("/artist/:name", async (req, res)=>{

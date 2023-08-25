@@ -16,7 +16,7 @@ const MenuLateral = () => {
                     idList++
                     return (
                         <li key={idList}>
-                        <MusicQueueDetails music={music}/>
+                            <MusicQueueDetails music={music}/>
                         </li>
                         )})
             }

@@ -82,11 +82,15 @@ const MediaBar = () => {
   }
 
   const formatTime = (seconds)=> {
-    let minutes = Math.floor(seconds / 60);
-    minutes = (minutes >= 10) ? minutes : "0" + minutes;
-    seconds = Math.floor(seconds % 60);
-    seconds = (seconds >= 10) ? seconds : "0" + seconds;
-    return minutes + ":" + seconds;
+    if (seconds > 0)
+    {
+      let minutes = Math.floor(seconds / 60);
+      minutes = (minutes >= 10) ? minutes : "0" + minutes;
+      seconds = Math.floor(seconds % 60);
+      seconds = (seconds >= 10) ? seconds : "0" + seconds;
+      return minutes + ":" + seconds;
+    }
+    return "00:00"
   }
 
   const handleMusicEnded = ()=>{
@@ -112,15 +116,12 @@ const MediaBar = () => {
       <div className="mediabar-progressinfo">
         <div className="mediabar-infoinit">{currentFormatTime}</div>
         <div className="frame">
-          {
-            currentMusic?
-            <input 
-              className="mediabar-slider" 
-              onClick={handleSliderClick} 
-              onMouseMove={handleSliderMouseMove} 
-              type="range" min="0" max={duration} value={currentTime} id="progressSlider" title="progressSlider" placeholder="slider"/>:
-            <input className="mediabar-slider" type="range" min="0" max="0" value="0" id="progressSlider" title="progressSlider" placeholder="slider"/>
-          }
+          <input 
+                className="mediabar-slider"
+                onChange={()=>{}}
+                onClick={handleSliderClick} 
+                onMouseMove={handleSliderMouseMove} 
+                type="range" min="0" max={duration||"0"} value={currentTime||"0"} id="progressSlider" title="progressSlider" placeholder="slider"/>
         </div>
         <div className="mediabar-infoend">{durationFormatted}</div>
       </div>

@@ -23,6 +23,9 @@ app.use(express.json())
 const musicRoutes = require('./routes/musicRoutes')
 app.use('/music', musicRoutes)
 
+const pesquisarRoutes = require('./routes/pesquisarRoutes')
+app.use('/pesquisar', pesquisarRoutes)
+
 //Rota inicial
 app.get('/', (req, res) =>{
     res.json({

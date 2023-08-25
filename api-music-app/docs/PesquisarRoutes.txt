@@ -1,0 +1,34 @@
+/pesquisar/albuns
+    Verbo: GET
+    Return: Retorna todos os albuns
+    Estrutura:
+        {
+            name: string,
+            artist: string,
+            image: Image(base64)
+        }
+
+/pesquisar/albuns/search/:name
+Verbo: GET
+Parameter: nome do album
+Return: Retorna os alguns com o nome do parametro
+
+/pesquisar/albuns/songs/:name
+Verbo: GET
+Parameter: nome do album
+Return: Retorna as musicas do album
+
+/pesquisar/genres
+    Verbo: GET
+    Return: Retorna todos os generos
+    Estrutura:
+        {
+            genres: array of string
+        }
+
+
+/pesquisar/genres/:genre
+Verbo: GET
+Parameter: nome do genero
+Return: Retorna as musicas para o genero
+

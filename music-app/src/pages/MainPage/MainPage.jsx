@@ -1,6 +1,6 @@
 import React from 'react'
 import './MainPage.css'
-import noteIcon from '../../assets/noteicon.png'
+import nomusic from '../../assets/nomusic.png'
 import MusicQueueDetails from '../../components/MusicQueueDetails'
 import {MusicContext} from '../../context/MusicContext'
 import { useContext, useState, useEffect } from 'react'
@@ -14,7 +14,7 @@ const MainPage = () => {
       setMusicImage(musicStack[0].image)
     }else
     {
-      setMusicImage(noteIcon)
+      setMusicImage(nomusic)
     }
 
   }, [musicStack])

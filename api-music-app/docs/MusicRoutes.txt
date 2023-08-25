@@ -7,22 +7,17 @@
     Parameter: Id da musica
     Return: Retorna o arquivo de audio da musica selecionada
 
-/music/loadPicture/:id
-    Verbo: GET
-    Parameter: Id da musica
-    Return: Retorna o arquivo de imagem do album da musica selecionada
-
 /music/:id
     Verbo: GET
     Parameter: Id da musica
     Return: Retorna as informações da musica
 
-/music/name/search/:name
+/music/name/:name
     Verbo: GET
     Parameter: nome da musica
     Return: Retorna uma musica com o nome exato passado por parametro
 
-/music/search/:name
+/music/name/search/:name
     Verbo: GET 
     Parameter: nome da musica
     Return: Retorna um array de musicas que correspondem a busca

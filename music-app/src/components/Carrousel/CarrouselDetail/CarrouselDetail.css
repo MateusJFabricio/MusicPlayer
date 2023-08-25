@@ -1,0 +1,36 @@
+.carrouseldetail{
+    position: relative;
+    width: 200px;
+    min-width: 200px;
+    height: 100%;
+    padding-left: 10px;
+}
+.carrouseldetail-image{
+    padding-top: 5px;
+    width: 100%;
+    height: 200px;
+    border-radius: 5px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+.albumPicture{
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0 -1px 10px 2px rgba(255, 255, 255, 0.2);
+}
+.playPicture{
+    position: absolute;
+    top: 70px;
+    left: 70px;
+    width: 60px;
+}
+.carrouseldetail-name{
+    font-size: 20px;
+    margin-left: 5px;
+}
+.carrouseldetail-artist{
+    font-size: 16px;
+    margin-left: 5px;
+    color: rgba(255, 255, 255, 0.674);
+}

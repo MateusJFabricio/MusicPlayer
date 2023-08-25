@@ -1,5 +1,95 @@
 [
   {
+    "name": "É o Amor",
+    "artist": "Zezé di Camargo e Luciano",
+    "album": "As melhores",
+    "released": 2020,
+    "genre": ["Sertanejo"],
+    "path": "C:/Music/Zezé di Camargo e Luciano/As melhores/01- É o Amor.mp3",
+    "picture_path": "C:/Music/Zezé di Camargo e Luciano/As melhores/cover.jpg"
+  },
+  {
+    "name": "Pão de Mel",
+    "artist": "Zezé di Camargo e Luciano",
+    "album": "As melhores",
+    "released": 2020,
+    "genre": ["Sertanejo"],
+    "path": "C:/Music/Zezé di Camargo e Luciano/As melhores/02- Pão de Mel.mp3",
+    "picture_path": "C:/Music/Zezé di Camargo e Luciano/As melhores/cover.jpg"
+  },
+  {
+    "name": "A Ferro e Fogo",
+    "artist": "Zezé di Camargo e Luciano",
+    "album": "As melhores",
+    "released": 2020,
+    "genre": ["Sertanejo"],
+    "path": "C:/Music/Zezé di Camargo e Luciano/As melhores/03- A Ferro e Fogo.mp3",
+    "picture_path": "C:/Music/Zezé di Camargo e Luciano/As melhores/cover.jpg"
+  },
+  {
+    "name": "Me Leva Pra Casa",
+    "artist": "Zezé di Camargo e Luciano",
+    "album": "As melhores",
+    "released": 2020,
+    "genre": ["Sertanejo"],
+    "path": "C:/Music/Zezé di Camargo e Luciano/As melhores/04- Me Leva Pra Casa.mp3",
+    "picture_path": "C:/Music/Zezé di Camargo e Luciano/As melhores/cover.jpg"
+  },
+  {
+    "name": "Olhos de Lua",
+    "artist": "Zezé di Camargo e Luciano",
+    "album": "As melhores",
+    "released": 2020,
+    "genre": ["Sertanejo"],
+    "path": "C:/Music/Zezé di Camargo e Luciano/As melhores/05- Olhos de Lua.mp3",
+    "picture_path": "C:/Music/Zezé di Camargo e Luciano/As melhores/cover.jpg"
+  },
+  {
+    "name": "Como um Anjo",
+    "artist": "Zezé di Camargo e Luciano",
+    "album": "As melhores",
+    "released": 2020,
+    "genre": ["Sertanejo"],
+    "path": "C:/Music/Zezé di Camargo e Luciano/As melhores/06- Como um Anjo.mp3",
+    "picture_path": "C:/Music/Zezé di Camargo e Luciano/As melhores/cover.jpg"
+  },
+  {
+    "name": "Olha eu aí (Ao Vivo)",
+    "artist": "Zezé di Camargo e Luciano",
+    "album": "As melhores",
+    "released": 2020,
+    "genre": ["Sertanejo"],
+    "path": "C:/Music/Zezé di Camargo e Luciano/As melhores/07- Olha eu aí (Ao Vivo).mp3",
+    "picture_path": "C:/Music/Zezé di Camargo e Luciano/As melhores/cover.jpg"
+  },
+  {
+    "name": "Dou a Vida por Um Beijo",
+    "artist": "Zezé di Camargo e Luciano",
+    "album": "As melhores",
+    "released": 2020,
+    "genre": ["Sertanejo"],
+    "path": "C:/Music/Zezé di Camargo e Luciano/As melhores/08- Dou a Vida por Um Beijo.mp3",
+    "picture_path": "C:/Music/Zezé di Camargo e Luciano/As melhores/cover.jpg"
+  },
+  {
+    "name": "Vivendo por Viver",
+    "artist": "Zezé di Camargo e Luciano",
+    "album": "As melhores",
+    "released": 2020,
+    "genre": ["Sertanejo"],
+    "path": "C:/Music/Zezé di Camargo e Luciano/As melhores/09- Vivendo por Viver.mp3",
+    "picture_path": "C:/Music/Zezé di Camargo e Luciano/As melhores/cover.jpg"
+  },
+  {
+    "name": "Nosso Amor é Ouro",
+    "artist": "Zezé di Camargo e Luciano",
+    "album": "As melhores",
+    "released": 2020,
+    "genre": ["Sertanejo"],
+    "path": "C:/Music/Zezé di Camargo e Luciano/As melhores/10- Nosso Amor é Ouro.mp3",
+    "picture_path": "C:/Music/Zezé di Camargo e Luciano/As melhores/cover.jpg"
+  },
+  {
     "name": "Blown Away",
     "artist": "Akon",
     "album": "Konvicted",
