@@ -3,6 +3,7 @@ import './AlbumListPage.css'
 import { useParams } from 'react-router-dom'
 import {MusicContext} from '../../context/MusicContext'
 import MusicCard from '../../components/MusicCard/MusicCard'
+import SearchTitle from '../../components/SearchTitle/SearchTitle'
 
 const AlbumListPage = () => {
   const URL_API = "http://localhost:3000/"
@@ -37,14 +38,15 @@ const AlbumListPage = () => {
             <div className="albumlist-released">Lançamento: {musicResults[0]&&musicResults[0].released}</div>
           </div>
         </div>
+        {musicResults.length > 0 ?
         <div className="albumlist-musiclistcontainer">
-          <div className="albumlist-musictitle">Musicas</div>
+          {musicResults.length > 0 ?<SearchTitle title="Musicas"/>:null}
             {
               musicResults.map((music, index)=>(
                   <MusicCard key={index} music={music}/>
               ))
             }
-        </div>
+        </div>:null}
       </div>
     </>
   )

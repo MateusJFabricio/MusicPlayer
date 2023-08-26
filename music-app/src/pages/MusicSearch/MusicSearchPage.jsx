@@ -4,13 +4,16 @@ import { useParams } from 'react-router-dom'
 import MusicCard from '../../components/MusicCard/MusicCard'
 import {MusicContext} from '../../context/MusicContext'
 import Carrousel from '../../components/Carrousel/Carrousel'
+import SearchTitle from '../../components/SearchTitle/SearchTitle'
+import GenreCard from '../../components/GenreCard/GenreCard'
 
 const MusicSearchPage = () => {
   const URL_API = "http://localhost:3000/"
   const {search}=useParams();
-  const [musicResults, setMusicResults] = useState([])
   const {musicStack, setMusicStack} = useContext(MusicContext)
-  const [albuns, setAlbuns] = useState([])
+  const [searchMusicResults, setSearchMusicResults] = useState([])
+  const [searchAlbunsResults, setSearchAlbunsResults] = useState([])
+  const [searchGenresResults, setSearchGenresResults] = useState([])
 
   const buscaPorArtista = (artist)=>{
     if (artist)
@@ -18,7 +21,7 @@ const MusicSearchPage = () => {
         fetch(URL_API + "music/artist/search/" + artist)
       .then(response => response.json())
       .then(data => {
-        setMusicResults(data)
+        setSearchMusicResults(data)
       })
     }
   }
@@ -29,7 +32,7 @@ const MusicSearchPage = () => {
       fetch(URL_API + "music/" + id)
       .then(response => response.json())
       .then(data => {
-        setMusicResults(data)
+        setSearchMusicResults(data)
       })
     }
   }
@@ -38,7 +41,15 @@ const MusicSearchPage = () => {
     fetch(URL_API + "pesquisar/albuns")
     .then(response => response.json())
     .then(data => {
-      setAlbuns(data)
+      setSearchAlbunsResults(data)
+    })
+  }
+
+  const buscarGeneros = ()=>{
+    fetch(URL_API + "pesquisar/genres")
+    .then(response => response.json())
+    .then(data => {
+      setSearchGenresResults(data)
     })
   }
 
@@ -61,11 +72,10 @@ const MusicSearchPage = () => {
             buscaMusica(wordSearch)
           }
         }
-      }else{
-        buscarAlbuns()
       }
       
-  
+      buscarAlbuns()
+      buscarGeneros()
   }, [search])
   
   // Adiciona musica no context
@@ -74,24 +84,26 @@ const MusicSearchPage = () => {
   }
   return (
     <div className="musicsearchpage-container">
-        <Carrousel albuns={albuns}/>
+            {/* Resultado da pesquisa */}
+            {searchMusicResults.length > 0 ?<SearchTitle title="Musica"/>:null}
+            {searchMusicResults.map((music, index)=>(
+              <div className="musicsearchpage-musiclistcontainer">
+                <MusicCard key={index} music={music}/>
+              </div>
+            ))}
+            {/* Exibe todos os albuns e restantes */}
+            {searchAlbunsResults.length > 0 ?<SearchTitle title="Albuns"/>:null}
+            {searchAlbunsResults.length > 0 ? <Carrousel albuns={searchAlbunsResults}/>:null}
+            {/* Exibe os generos */}
+            <SearchTitle title="Gêneros"/>
+            <div className="genrescontainer">
+              {searchGenresResults.map((genre, index)=>(
+                <GenreCard key={index} title={genre}/>
+              ))}
+            </div>
+
     </div>
   )
-  // return (
-  //   <>
-  //     <div className='musicsearchpage-container'>
-  //       <ul>
-  //         {
-  //           musicResults.map((music)=>(
-  //             <li key={music._id}>
-  //               <MusicCard music={music} btnAddMusicOnClick={handleAddMusic}/>
-  //             </li>
-  //           ))
-  //         }
-  //       </ul>
-  //     </div>
-  //   </>
-  // )
 }
 
 export default MusicSearchPage

@@ -1,0 +1,9 @@
+.searchtitle{
+    position: relative;
+    margin: 10px;
+    padding-left: 10px;
+    border-radius: 10px;
+    height: 60px;
+    font-size: 50px;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.233));
+}
