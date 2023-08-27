@@ -9,7 +9,7 @@ const MenuLateral = () => {
     const {musicStack, setMusicStack} = useContext(MusicContext)
 
     return (
-        <div className="menulateral">
+        <div className={musicStack.length > 0 ? "menulateral" : "menulateral hide"}>
             <div className="menulateral-queue-title">Sequência de Músicas</div>
             <ul className="menulateral-queue">{
                 musicStack.map((music)=>{

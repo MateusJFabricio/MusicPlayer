@@ -13,9 +13,9 @@ function App() {
     <>
       <div className='container'>
         <div className="pages">
+          <MenuLateral/>
           <Outlet/>
         </div>
-        <MenuLateral/>
         <NavBar/>
         <MediaBar/>
       </div>

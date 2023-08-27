@@ -5,9 +5,11 @@
 }
 
 .pages{
+    display: flex;
+    flex-direction: row;
     position: absolute;
     top: 70px;
-    bottom: 100px;
-    left: 400px;
-    width: calc(100% - 400px);;
+    bottom: 100px;;
+    width: 100%;
+    min-width: 900px;
 }

@@ -12,6 +12,9 @@
     left: 70px;
     top: 5px;
     width: 250px;
+    overflow: hidden;
+    outline: none;
+    height: 20px;
 }
 
 .queue-artist{
@@ -20,6 +23,8 @@
     width: 250px;
     top: 25px;
     color: rgb(151, 151, 151);
+    outline: none;
+    height: 20px;
 }
 
 .queue-time{

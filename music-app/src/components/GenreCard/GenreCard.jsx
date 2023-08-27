@@ -11,26 +11,26 @@ const GenreCard = ({title}) => {
     }
     
     return {
-      cor1: "hsla(" + randomNumber + ", 100%, 50%, " + transparencia + ")",
-      cor2: "hsl(" + randomNumber + ", 100%, 50%)"
+      cor1: "hsla(" + randomNumber + ", 100%, 70%, " + transparencia + ")",
+      cor2: "hsl(" + randomNumber + ", 100%, 70%)"
     }
   }
 
-  const {cor1, cor2} = pickRandomColor(0.300)
+  const {cor1, cor2} = pickRandomColor(0.10)
   const genrecardContainer = {
     position: "relative",
     height: "40px",
     width: "200px",
     borderRadius: "5px",
-    backgroundColor: cor1
+    backgroundColor: cor1,
+    border: "1px solid gray"
   }
 
   const genrecardDestaque = {
     position: "relative",
     height: "100%",
     width: "10px",
-    backgroundColor: cor2,
-    borderRadius: "5px"
+    backgroundColor: cor2
   }
 
   return (
