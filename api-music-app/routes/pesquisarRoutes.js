@@ -60,7 +60,7 @@ router.get("/albuns/songs/:album", async (req, res)=>{
 router.get("/genres", async (req, res)=>{
     try {
         const genres = await Music.find().distinct("genre")
-        res.status(200).json({genres: genres})
+        res.status(200).json(genres)
     } catch (error) {
         res.status(500).json({error: error.message})
     }
