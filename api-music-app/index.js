@@ -2,8 +2,6 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose')
 
-const debugMode = true
-
 //Instalando CORS
 const cors=require("cors");
 const corsOptions ={
@@ -28,32 +26,18 @@ app.use('/music', musicRoutes)
 const pesquisarRoutes = require('./routes/pesquisarRoutes')
 app.use('/pesquisar', pesquisarRoutes)
 
-const gerenciarRoutes = require('./routes/gerenciarRoutes')
-app.use('/gerenciar', gerenciarRoutes)
-
 //Rota inicial
 app.get('/', (req, res) =>{
     res.json({
-        message: 'Server running'
+        message: 'Calma aí jovem que eu estou rodando sim'
     })
 })
 
-if (debugMode) {
-    mongoose.connect("mongodb://localhost:27017/geraldodb_dev")
-    .then(()=>{
-        console.log('App conectado ao banco de dados')
-        app.listen(3000)
-    })
-    .catch((err)=>{
-        console.log(err)
-    })
-}else{
-    mongoose.connect("mongodb://localhost:27017/geraldodb")
-    .then(()=>{
-        console.log('App conectado ao banco de dados')
-        app.listen(3000)
-    })
-    .catch((err)=>{
-        console.log(err)
-    })
-}
+mongoose.connect("mongodb://localhost:27017/geraldodb")
+.then(()=>{
+    console.log('App conectado ao banco de dados')
+    app.listen(3000)
+})
+.catch((err)=>{
+    console.log(err)
+})
