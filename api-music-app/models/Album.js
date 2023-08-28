@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 //Cria a tabela
-const Music = mongoose.model('musicas',{
+const Albuns = mongoose.model('albuns',{
     name: {
       type: String,
       required: true
@@ -10,26 +10,14 @@ const Music = mongoose.model('musicas',{
       type: String,
       required: true
     },
-    album: {
-      type: String,
-      required: true
-    },
-    albumId: {
-      type: String,
-      required: true
-    },
     released: {
       type: Number,
       required: true,
-      min: 1900,
-      max: 2100
+      min: 1000,
+      max: 9999
     },
     genre: {
       type: [String],
-      required: true
-    },
-    path: {
-      type: String,
       required: true
     },
     image: {

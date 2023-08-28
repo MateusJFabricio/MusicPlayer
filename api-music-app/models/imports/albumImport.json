@@ -1,0 +1,818 @@
+[
+    {
+        "album":{
+                "name": "As melhores",
+                "artist": "Zezé di Camargo e Luciano",
+                "released": 2020,
+                "genre": ["Sertanejo"],
+                "picture_path": "C:/Music/Zezé di Camargo e Luciano/As melhores/cover.jpg",
+                "musicas":[
+                    {
+                        "name": "É o Amor",
+                        "artist": "Zezé di Camargo e Luciano",
+                        "album": "As melhores",
+                        "released": 2020,
+                        "genre": ["Sertanejo"],
+                        "path": "C:/Music/Zezé di Camargo e Luciano/As melhores/01- É o Amor.mp3",
+                        "picture_path": "C:/Music/Zezé di Camargo e Luciano/As melhores/cover.jpg"
+                      },
+                      {
+                        "name": "Pão de Mel",
+                        "artist": "Zezé di Camargo e Luciano",
+                        "album": "As melhores",
+                        "released": 2020,
+                        "genre": ["Sertanejo"],
+                        "path": "C:/Music/Zezé di Camargo e Luciano/As melhores/02- Pão de Mel.mp3",
+                        "picture_path": "C:/Music/Zezé di Camargo e Luciano/As melhores/cover.jpg"
+                      },
+                      {
+                        "name": "A Ferro e Fogo",
+                        "artist": "Zezé di Camargo e Luciano",
+                        "album": "As melhores",
+                        "released": 2020,
+                        "genre": ["Sertanejo"],
+                        "path": "C:/Music/Zezé di Camargo e Luciano/As melhores/03- A Ferro e Fogo.mp3",
+                        "picture_path": "C:/Music/Zezé di Camargo e Luciano/As melhores/cover.jpg"
+                      },
+                      {
+                        "name": "Me Leva Pra Casa",
+                        "artist": "Zezé di Camargo e Luciano",
+                        "album": "As melhores",
+                        "released": 2020,
+                        "genre": ["Sertanejo"],
+                        "path": "C:/Music/Zezé di Camargo e Luciano/As melhores/04- Me Leva Pra Casa.mp3",
+                        "picture_path": "C:/Music/Zezé di Camargo e Luciano/As melhores/cover.jpg"
+                      },
+                      {
+                        "name": "Olhos de Lua",
+                        "artist": "Zezé di Camargo e Luciano",
+                        "album": "As melhores",
+                        "released": 2020,
+                        "genre": ["Sertanejo"],
+                        "path": "C:/Music/Zezé di Camargo e Luciano/As melhores/05- Olhos de Lua.mp3",
+                        "picture_path": "C:/Music/Zezé di Camargo e Luciano/As melhores/cover.jpg"
+                      },
+                      {
+                        "name": "Como um Anjo",
+                        "artist": "Zezé di Camargo e Luciano",
+                        "album": "As melhores",
+                        "released": 2020,
+                        "genre": ["Sertanejo"],
+                        "path": "C:/Music/Zezé di Camargo e Luciano/As melhores/06- Como um Anjo.mp3",
+                        "picture_path": "C:/Music/Zezé di Camargo e Luciano/As melhores/cover.jpg"
+                      },
+                      {
+                        "name": "Olha eu aí (Ao Vivo)",
+                        "artist": "Zezé di Camargo e Luciano",
+                        "album": "As melhores",
+                        "released": 2020,
+                        "genre": ["Sertanejo"],
+                        "path": "C:/Music/Zezé di Camargo e Luciano/As melhores/07- Olha eu aí (Ao Vivo).mp3",
+                        "picture_path": "C:/Music/Zezé di Camargo e Luciano/As melhores/cover.jpg"
+                      },
+                      {
+                        "name": "Dou a Vida por Um Beijo",
+                        "artist": "Zezé di Camargo e Luciano",
+                        "album": "As melhores",
+                        "released": 2020,
+                        "genre": ["Sertanejo"],
+                        "path": "C:/Music/Zezé di Camargo e Luciano/As melhores/08- Dou a Vida por Um Beijo.mp3",
+                        "picture_path": "C:/Music/Zezé di Camargo e Luciano/As melhores/cover.jpg"
+                      },
+                      {
+                        "name": "Vivendo por Viver",
+                        "artist": "Zezé di Camargo e Luciano",
+                        "album": "As melhores",
+                        "released": 2020,
+                        "genre": ["Sertanejo"],
+                        "path": "C:/Music/Zezé di Camargo e Luciano/As melhores/09- Vivendo por Viver.mp3",
+                        "picture_path": "C:/Music/Zezé di Camargo e Luciano/As melhores/cover.jpg"
+                      },
+                      {
+                        "name": "Nosso Amor é Ouro",
+                        "artist": "Zezé di Camargo e Luciano",
+                        "album": "As melhores",
+                        "released": 2020,
+                        "genre": ["Sertanejo"],
+                        "path": "C:/Music/Zezé di Camargo e Luciano/As melhores/10- Nosso Amor é Ouro.mp3",
+                        "picture_path": "C:/Music/Zezé di Camargo e Luciano/As melhores/cover.jpg"
+                      }
+                ]
+        }
+    },
+    {
+        "album":{
+                "name": "Konvicted",
+                "artist": "Akon",
+                "released": 2006,
+                "genre": [
+                    "Reggae",
+                    "R&B",
+                    "Soul",
+                    "Pop",
+                    "Hip-Hop",
+                    "Rap",
+                    "Afrobeats"
+                  ],
+                "picture_path": "C:/Music/Akon/Konvicted/cover.jpg",
+                "musicas":[
+                    {
+                        "name": "Blown Away",
+                        "artist": "Akon",
+                        "album": "Konvicted",
+                        "released": 2006,
+                        "genre": [
+                            "Reggae",
+                            "R&B",
+                            "Soul",
+                            "Pop",
+                            "Hip-Hop",
+                            "Rap",
+                            "Afrobeats"
+                          ],
+                        "path": "C:/Music/Akon/Konvicted/Blown Away.mp3",
+                        "picture_path": "C:/Music/Akon/Konvicted/cover.jpg"
+                      },
+                      {
+                        "name": "Cant Wait",
+                        "artist": "Akon",
+                        "album": "Konvicted",
+                        "released": 2006,
+                        "genre": [
+                            "Reggae",
+                            "R&B",
+                            "Soul",
+                            "Pop",
+                            "Hip-Hop",
+                            "Rap",
+                            "Afrobeats"
+                          ],
+                          "path": "C:/Music/Akon/Konvicted/Cant Wait.mp3",
+                          "picture_path": "C:/Music/Akon/Konvicted/cover.jpg"
+                      },
+                      {
+                        "name": "Dont Matter Calypso Remix",
+                        "artist": "Akon",
+                        "album": "Konvicted",
+                        "released": 2006,
+                        "genre": [
+                            "Reggae",
+                            "R&B",
+                            "Soul",
+                            "Pop",
+                            "Hip-Hop",
+                            "Rap",
+                            "Afrobeats"
+                          ],
+                          "path": "C:/Music/Akon/Konvicted/Dont Matter Calypso Remix.mp3",
+                          "picture_path": "C:/Music/Akon/Konvicted/cover.jpg"
+                      },
+                      {
+                        "name": "Dont Matter",
+                        "artist": "Akon",
+                        "album": "Konvicted",
+                        "released": 2006,
+                        "genre": [
+                            "Reggae",
+                            "R&B",
+                            "Soul",
+                            "Pop",
+                            "Hip-Hop",
+                            "Rap",
+                            "Afrobeats"
+                          ],
+                          "path": "C:/Music/Akon/Konvicted/Dont Matter.mp3",
+                          "picture_path": "C:/Music/Akon/Konvicted/cover.jpg"
+                      },
+                      {
+                        "name": "Gangsta Bop",
+                        "artist": "Akon",
+                        "album": "Konvicted",
+                        "released": 2006,
+                        "genre": [
+                            "Reggae",
+                            "R&B",
+                            "Soul",
+                            "Pop",
+                            "Hip-Hop",
+                            "Rap",
+                            "Afrobeats"
+                          ],
+                          "path": "C:/Music/Akon/Konvicted/Gangsta Bop.mp3",
+                          "picture_path": "C:/Music/Akon/Konvicted/cover.jpg"
+                      },
+                      {
+                        "name": "Gringo",
+                        "artist": "Akon",
+                        "album": "Konvicted",
+                        "released": 2006,
+                        "genre": [
+                            "Reggae",
+                            "R&B",
+                            "Soul",
+                            "Pop",
+                            "Hip-Hop",
+                            "Rap",
+                            "Afrobeats"
+                          ],
+                          "path": "C:/Music/Akon/Konvicted/Gringo.mp3",
+                          "picture_path": "C:/Music/Akon/Konvicted/cover.jpg"
+                      },
+                      {
+                        "name": "Mama Africa",
+                        "artist": "Akon",
+                        "album": "Konvicted",
+                        "released": 2006,
+                        "genre": [
+                            "Reggae",
+                            "R&B",
+                            "Soul",
+                            "Pop",
+                            "Hip-Hop",
+                            "Rap",
+                            "Afrobeats"
+                          ],
+                          "path": "C:/Music/Akon/Konvicted/Mama Africa.mp3",
+                          "picture_path": "C:/Music/Akon/Konvicted/cover.jpg"
+                      },
+                      {
+                        "name": "Never Took The Time",
+                        "artist": "Akon",
+                        "album": "Konvicted",
+                        "released": 2006,
+                        "genre": [
+                            "Reggae",
+                            "R&B",
+                            "Soul",
+                            "Pop",
+                            "Hip-Hop",
+                            "Rap",
+                            "Afrobeats"
+                          ],
+                          "path": "C:/Music/Akon/Konvicted/Never Took The Time.mp3",
+                          "picture_path": "C:/Music/Akon/Konvicted/cover.jpg"
+                      },
+                      {
+                        "name": "Once in a While",
+                        "artist": "Akon",
+                        "album": "Konvicted",
+                        "released": 2006,
+                        "genre": [
+                            "Reggae",
+                            "R&B",
+                            "Soul",
+                            "Pop",
+                            "Hip-Hop",
+                            "Rap",
+                            "Afrobeats"
+                          ],
+                          "path": "C:/Music/Akon/Konvicted/Once in a While.mp3",
+                          "picture_path": "C:/Music/Akon/Konvicted/cover.jpg"
+                      },
+                      {
+                        "name": "Rush",
+                        "artist": "Akon",
+                        "album": "Konvicted",
+                        "released": 2006,
+                        "genre": [
+                            "Reggae",
+                            "R&B",
+                            "Soul",
+                            "Pop",
+                            "Hip-Hop",
+                            "Rap",
+                            "Afrobeats"
+                          ],
+                          "path": "C:/Music/Akon/Konvicted/Rush.mp3",
+                          "picture_path": "C:/Music/Akon/Konvicted/cover.jpg"
+                      },
+                      {
+                        "name": "Shake Down",
+                        "artist": "Akon",
+                        "album": "Konvicted",
+                        "released": 2006,
+                        "genre": [
+                            "Reggae",
+                            "R&B",
+                            "Soul",
+                            "Pop",
+                            "Hip-Hop",
+                            "Rap",
+                            "Afrobeats"
+                          ],
+                          "path": "C:/Music/Akon/Konvicted/Shake Down.mp3",
+                          "picture_path": "C:/Music/Akon/Konvicted/cover.jpg"
+                      },
+                      {
+                        "name": "Smack that",
+                        "artist": "Akon",
+                        "album": "Konvicted",
+                        "released": 2006,
+                        "genre": [
+                            "Reggae",
+                            "R&B",
+                            "Soul",
+                            "Pop",
+                            "Hip-Hop",
+                            "Rap",
+                            "Afrobeats"
+                          ],
+                          "path": "C:/Music/Akon/Konvicted/Smack that.mp3",
+                          "picture_path": "C:/Music/Akon/Konvicted/cover.jpg"
+                      },
+                      {
+                        "name": "Sorry Blame it on me",
+                        "artist": "Akon",
+                        "album": "Konvicted",
+                        "released": 2006,
+                        "genre": [
+                            "Reggae",
+                            "R&B",
+                            "Soul",
+                            "Pop",
+                            "Hip-Hop",
+                            "Rap",
+                            "Afrobeats"
+                          ],
+                          "path": "C:/Music/Akon/Konvicted/Sorry Blame it on me.mp3",
+                          "picture_path": "C:/Music/Akon/Konvicted/cover.jpg"
+                      },
+                      {
+                        "name": "The Rain",
+                        "artist": "Akon",
+                        "album": "Konvicted",
+                        "released": 2006,
+                        "genre": [
+                            "Reggae",
+                            "R&B",
+                            "Soul",
+                            "Pop",
+                            "Hip-Hop",
+                            "Rap",
+                            "Afrobeats"
+                          ],
+                          "path": "C:/Music/Akon/Konvicted/The Rain.mp3",
+                          "picture_path": "C:/Music/Akon/Konvicted/cover.jpg"
+                      },
+                      {
+                        "name": "Tired Of Runnin",
+                        "artist": "Akon",
+                        "album": "Konvicted",
+                        "released": 2006,
+                        "genre": [
+                            "Reggae",
+                            "R&B",
+                            "Soul",
+                            "Pop",
+                            "Hip-Hop",
+                            "Rap",
+                            "Afrobeats"
+                          ],
+                          "path": "C:/Music/Akon/Konvicted/Tired Of Runnin.mp3",
+                          "picture_path": "C:/Music/Akon/Konvicted/cover.jpg"
+                      },
+                      {
+                        "name": "Wanna Fuck You",
+                        "artist": "Akon",
+                        "album": "Konvicted",
+                        "released": 2006,
+                        "genre": [
+                            "Reggae",
+                            "R&B",
+                            "Soul",
+                            "Pop",
+                            "Hip-Hop",
+                            "Rap",
+                            "Afrobeats"
+                          ],
+                          "path": "C:/Music/Akon/Konvicted/Wanna Fuck You.mp3",
+                          "picture_path": "C:/Music/Akon/Konvicted/cover.jpg"
+                      },
+                      {
+                        "name": "Wanna Love You Remix",
+                        "artist": "Akon",
+                        "album": "Konvicted",
+                        "released": 2006,
+                        "genre": [
+                            "Reggae",
+                            "R&B",
+                            "Soul",
+                            "Pop",
+                            "Hip-Hop",
+                            "Rap",
+                            "Afrobeats"
+                          ],
+                          "path": "C:/Music/Akon/Konvicted/Wanna Love You Remix.mp3",
+                          "picture_path": "C:/Music/Akon/Konvicted/cover.jpg"
+                      },
+                      {
+                        "name": "Wanna Love You",
+                        "artist": "Akon",
+                        "album": "Konvicted",
+                        "released": 2006,
+                        "genre": [
+                            "Reggae",
+                            "R&B",
+                            "Soul",
+                            "Pop",
+                            "Hip-Hop",
+                            "Rap",
+                            "Afrobeats"
+                          ],
+                          "path": "C:/Music/Akon/Konvicted/Wanna Love You.mp3",
+                          "picture_path": "C:/Music/Akon/Konvicted/cover.jpg"
+                      }
+                ]
+        }
+    },
+    {
+        "album":{
+                "name": "Ao Vivo Em Brasilia",
+                "artist": "Luana Prado",
+                "released": 2023,
+                "genre": [
+                    "Sertanejo"
+                  ],
+                "picture_path": "C:/Music/Luana Prado/Ao Vivo Em Brasilia/cover.jpg",
+                "musicas":[
+                    {
+                        "name": "Beijo Fuleiro (Ao Vivo)",
+                        "artist": "Luana Prado",
+                        "album": "Ao Vivo Em Brasilia",
+                        "released": 2023,
+                        "genre": [
+                            "Sertanejo"
+                          ],
+                          "path": "C:/Music/Luana Prado/Ao Vivo Em Brasilia/Beijo Fuleiro (Ao Vivo).mp3",
+                          "picture_path": "C:/Music/Luana Prado/Ao Vivo Em Brasilia/cover.jpg"
+                      },
+                      {
+                        "name": "Chorada (Ao Vivo)",
+                        "artist": "Luana Prado",
+                        "album": "Ao Vivo Em Brasilia",
+                        "released": 2023,
+                        "genre": [
+                            "Sertanejo"
+                          ],
+                          "path": "C:/Music/Luana Prado/Ao Vivo Em Brasilia/Chorada (Ao Vivo).mp3",
+                          "picture_path": "C:/Music/Luana Prado/Ao Vivo Em Brasilia/cover.jpg"
+                      },
+                      {
+                        "name": "Chovendo Novidade (Ao Vivo)",
+                        "artist": "Luana Prado",
+                        "album": "Ao Vivo Em Brasilia",
+                        "released": 2023,
+                        "genre": [
+                            "Sertanejo"
+                          ],
+                          "path": "C:/Music/Luana Prado/Ao Vivo Em Brasilia/Chovendo Novidade (Ao Vivo).mp3",
+                          "picture_path": "C:/Music/Luana Prado/Ao Vivo Em Brasilia/cover.jpg"
+                      },
+                      {
+                        "name": "Cosquinha No Coração (Ao Vivo)",
+                        "artist": "Luana Prado",
+                        "album": "Ao Vivo Em Brasilia",
+                        "released": 2023,
+                        "genre": [
+                            "Sertanejo"
+                          ],
+                          "path": "C:/Music/Luana Prado/Ao Vivo Em Brasilia/Cosquinha No Coração (Ao Vivo).mp3",
+                          "picture_path": "C:/Music/Luana Prado/Ao Vivo Em Brasilia/cover.jpg"
+                      },
+                      {
+                        "name": "Desandei (Ao Vivo)",
+                        "artist": "Luana Prado",
+                        "album": "Ao Vivo Em Brasilia",
+                        "released": 2023,
+                        "genre": [
+                            "Sertanejo"
+                          ],
+                          "path": "C:/Music/Luana Prado/Ao Vivo Em Brasilia/Desandei (Ao Vivo).mp3",
+                          "picture_path": "C:/Music/Luana Prado/Ao Vivo Em Brasilia/cover.jpg"
+                      },
+                      {
+                        "name": "Dois Trabalhos (Ao Vivo)",
+                        "artist": "Luana Prado",
+                        "album": "Ao Vivo Em Brasilia",
+                        "released": 2023,
+                        "genre": [
+                            "Sertanejo"
+                          ],
+                          "path": "C:/Music/Luana Prado/Ao Vivo Em Brasilia/Dois Trabalhos (Ao Vivo).mp3",
+                          "picture_path": "C:/Music/Luana Prado/Ao Vivo Em Brasilia/cover.jpg"
+                      },
+                      {
+                        "name": "Em Primeira Mão (Ao Vivo)",
+                        "artist": "Luana Prado",
+                        "album": "Ao Vivo Em Brasilia",
+                        "released": 2023,
+                        "genre": [
+                            "Sertanejo"
+                          ],
+                          "path": "C:/Music/Luana Prado/Ao Vivo Em Brasilia/Em Primeira Mão (Ao Vivo).mp3",
+                          "picture_path": "C:/Music/Luana Prado/Ao Vivo Em Brasilia/cover.jpg"
+                      },
+                      {
+                        "name": "Ferida Aberta (Ao Vivo)",
+                        "artist": "Luana Prado",
+                        "album": "Ao Vivo Em Brasilia",
+                        "released": 2023,
+                        "genre": [
+                            "Sertanejo"
+                          ],
+                          "path": "C:/Music/Luana Prado/Ao Vivo Em Brasilia/Ferida Aberta (Ao Vivo).mp3",
+                          "picture_path": "C:/Music/Luana Prado/Ao Vivo Em Brasilia/cover.jpg"
+                      },
+                      {
+                        "name": "Foto Nova (Ao Vivo)",
+                        "artist": "Luana Prado",
+                        "album": "Ao Vivo Em Brasilia",
+                        "released": 2023,
+                        "genre": [
+                            "Sertanejo"
+                          ],
+                          "path": "C:/Music/Luana Prado/Ao Vivo Em Brasilia/Foto Nova (Ao Vivo).mp3",
+                          "picture_path": "C:/Music/Luana Prado/Ao Vivo Em Brasilia/cover.jpg"
+                      },
+                      {
+                        "name": "Insuperável (Ao Vivo)",
+                        "artist": "Luana Prado",
+                        "album": "Ao Vivo Em Brasilia",
+                        "released": 2023,
+                        "genre": [
+                            "Sertanejo"
+                          ],
+                          "path": "C:/Music/Luana Prado/Ao Vivo Em Brasilia/Insuperável (Ao Vivo).mp3",
+                          "picture_path": "C:/Music/Luana Prado/Ao Vivo Em Brasilia/cover.jpg"
+                      },
+                      {
+                        "name": "Me Ame Hoje (Ao Vivo)",
+                        "artist": "Luana Prado",
+                        "album": "Ao Vivo Em Brasilia",
+                        "released": 2023,
+                        "genre": [
+                            "Sertanejo"
+                          ],
+                          "path": "C:/Music/Luana Prado/Ao Vivo Em Brasilia/Me Ame Hoje (Ao Vivo).mp3",
+                          "picture_path": "C:/Music/Luana Prado/Ao Vivo Em Brasilia/cover.jpg"
+                      },
+                      {
+                        "name": "Namoro De Merd4 (Ao Vivo)",
+                        "artist": "Luana Prado",
+                        "album": "Ao Vivo Em Brasilia",
+                        "released": 2023,
+                        "genre": [
+                            "Sertanejo"
+                          ],
+                          "path": "C:/Music/Luana Prado/Ao Vivo Em Brasilia/Namoro De Merd4 (Ao Vivo).mp3",
+                          "picture_path": "C:/Music/Luana Prado/Ao Vivo Em Brasilia/cover.jpg"
+                      },
+                      {
+                        "name": "Olhinho (Ao Vivo)",
+                        "artist": "Luana Prado",
+                        "album": "Ao Vivo Em Brasilia",
+                        "released": 2023,
+                        "genre": [
+                            "Sertanejo"
+                          ],
+                          "path": "C:/Music/Luana Prado/Ao Vivo Em Brasilia/Olhinho (Ao Vivo).mp3",
+                          "picture_path": "C:/Music/Luana Prado/Ao Vivo Em Brasilia/cover.jpg"
+                      },
+                      {
+                        "name": "Perdoa Eu (É Só Falar Vem Que Eu Tô Indo) (Ao Vivo)",
+                        "artist": "Luana Prado",
+                        "album": "Ao Vivo Em Brasilia",
+                        "released": 2023,
+                        "genre": [
+                            "Sertanejo"
+                          ],
+                          "path": "C:/Music/Luana Prado/Ao Vivo Em Brasilia/Perdoa Eu (É Só Falar Vem Que Eu Tô Indo) (Ao Vivo).mp3",
+                          "picture_path": "C:/Music/Luana Prado/Ao Vivo Em Brasilia/cover.jpg"
+                      },
+                      {
+                        "name": "Tanto Faz (Ao Vivo)",
+                        "artist": "Luana Prado",
+                        "album": "Ao Vivo Em Brasilia",
+                        "released": 2023,
+                        "genre": [
+                            "Sertanejo"
+                          ],
+                          "path": "C:/Music/Luana Prado/Ao Vivo Em Brasilia/Tanto Faz (Ao Vivo).mp3",
+                          "picture_path": "C:/Music/Luana Prado/Ao Vivo Em Brasilia/cover.jpg"
+                      },
+                      {
+                        "name": "Tatua Meu Nome (Ao Vivo)",
+                        "artist": "Luana Prado",
+                        "album": "Ao Vivo Em Brasilia",
+                        "released": 2023,
+                        "genre": [
+                            "Sertanejo"
+                          ],
+                          "path": "C:/Music/Luana Prado/Ao Vivo Em Brasilia/Tatua Meu Nome (Ao Vivo).mp3",
+                          "picture_path": "C:/Music/Luana Prado/Ao Vivo Em Brasilia/cover.jpg"
+                      },
+                      {
+                        "name": "Tô Dentro (Ao Vivo)",
+                        "artist": "Luana Prado",
+                        "album": "Ao Vivo Em Brasilia",
+                        "released": 2023,
+                        "genre": [
+                            "Sertanejo"
+                          ],
+                          "path": "C:/Music/Luana Prado/Ao Vivo Em Brasilia/Tô Dentro (Ao Vivo).mp3",
+                          "picture_path": "C:/Music/Luana Prado/Ao Vivo Em Brasilia/cover.jpg"
+                      },
+                      {
+                        "name": "Whisky Vagabund0 (Ao Vivo)",
+                        "artist": "Luana Prado",
+                        "album": "Ao Vivo Em Brasilia",
+                        "released": 2023,
+                        "genre": [
+                            "Sertanejo"
+                          ],
+                          "path": "C:/Music/Luana Prado/Ao Vivo Em Brasilia/Whisky Vagabund0 (Ao Vivo).mp3",
+                          "picture_path": "C:/Music/Luana Prado/Ao Vivo Em Brasilia/cover.jpg"
+                      }
+                ]
+        }
+    },
+    {
+        "album":{
+                "name": "Decretos Reais",
+                "artist": "Marília Mendonça",
+                "released": 2023,
+                "genre": [
+                    "Sertanejo"
+                  ],
+                "picture_path": "C:/Music/Marília Mendonça/Decretos Reais/cover.jpg",
+                "musicas":[
+                    {
+                        "name": "Café da Manhã",
+                        "artist": "Marília Mendonça",
+                        "album": "Decretos Reais",
+                        "released": 2023,
+                        "genre": [
+                            "Sertanejo"
+                          ],
+                          "path": "C:/Music/Marília Mendonça/Decretos Reais/Café da Manhã.mp3",
+                          "picture_path": "C:/Music/Marília Mendonça/Decretos Reais/cover.jpg"
+                      },
+                      {
+                        "name": "Cumbia Do Amor",
+                        "artist": "Marília Mendonça",
+                        "album": "Decretos Reais",
+                        "released": 2023,
+                        "genre": [
+                            "Sertanejo"
+                          ],
+                          "path": "C:/Music/Marília Mendonça/Decretos Reais/Cumbia Do Amor.mp3",
+                          "picture_path": "C:/Music/Marília Mendonça/Decretos Reais/cover.jpg"
+                      },
+                      {
+                        "name": "Hackearam-me",
+                        "artist": "Marília Mendonça",
+                        "album": "Decretos Reais",
+                        "released": 2023,
+                        "genre": [
+                            "Sertanejo"
+                          ],
+                          "path": "C:/Music/Marília Mendonça/Decretos Reais/Hackearam-me.mp3",
+                          "picture_path": "C:/Music/Marília Mendonça/Decretos Reais/cover.jpg"
+                      },
+                      {
+                        "name": "Infiel Amante Não Tem Lar",
+                        "artist": "Marília Mendonça",
+                        "album": "Decretos Reais",
+                        "released": 2023,
+                        "genre": [
+                            "Sertanejo"
+                          ],
+                          "path": "C:/Music/Marília Mendonça/Decretos Reais/Infiel Amante Não Tem Lar.mp3",
+                          "picture_path": "C:/Music/Marília Mendonça/Decretos Reais/cover.jpg"
+                      },
+                      {
+                        "name": "Leão",
+                        "artist": "Marília Mendonça",
+                        "album": "Decretos Reais",
+                        "released": 2023,
+                        "genre": [
+                            "Sertanejo"
+                          ],
+                          "path": "C:/Music/Marília Mendonça/Decretos Reais/Leão.mp3",
+                          "picture_path": "C:/Music/Marília Mendonça/Decretos Reais/cover.jpg"
+                      },
+                      {
+                        "name": "Me Ame Mais",
+                        "artist": "Marília Mendonça",
+                        "album": "Decretos Reais",
+                        "released": 2023,
+                        "genre": [
+                            "Sertanejo"
+                          ],
+                          "path": "C:/Music/Marília Mendonça/Decretos Reais/Me Ame Mais.mp3",
+                          "picture_path": "C:/Music/Marília Mendonça/Decretos Reais/cover.jpg"
+                      },
+                      {
+                        "name": "Morango do Nordeste",
+                        "artist": "Marília Mendonça",
+                        "album": "Decretos Reais",
+                        "released": 2023,
+                        "genre": [
+                            "Sertanejo"
+                          ],
+                          "path": "C:/Music/Marília Mendonça/Decretos Reais/Morango do Nordeste.mp3",
+                          "picture_path": "C:/Music/Marília Mendonça/Decretos Reais/cover.jpg"
+                      },
+                      {
+                        "name": "Não Era Pra Ser Assim",
+                        "artist": "Marília Mendonça",
+                        "album": "Decretos Reais",
+                        "released": 2023,
+                        "genre": [
+                            "Sertanejo"
+                          ],
+                          "path": "C:/Music/Marília Mendonça/Decretos Reais/Não Era Pra Ser Assim.mp3",
+                          "picture_path": "C:/Music/Marília Mendonça/Decretos Reais/cover.jpg"
+                      },
+                      {
+                        "name": "Nem É Bom Lembrar",
+                        "artist": "Marília Mendonça",
+                        "album": "Decretos Reais",
+                        "released": 2023,
+                        "genre": [
+                            "Sertanejo"
+                          ],
+                          "path": "C:/Music/Marília Mendonça/Decretos Reais/Nem É Bom Lembrar.mp3",
+                          "picture_path": "C:/Music/Marília Mendonça/Decretos Reais/cover.jpg"
+                      },
+                      {
+                        "name": "O Que Falta Em Você Sou Eu",
+                        "artist": "Marília Mendonça",
+                        "album": "Decretos Reais",
+                        "released": 2023,
+                        "genre": [
+                            "Sertanejo"
+                          ],
+                          "path": "C:/Music/Marília Mendonça/Decretos Reais/O Que Falta Em Você Sou Eu.mp3",
+                          "picture_path": "C:/Music/Marília Mendonça/Decretos Reais/cover.jpg"
+                      },
+                      {
+                        "name": "Pra Falar a Verdade",
+                        "artist": "Marília Mendonça",
+                        "album": "Decretos Reais",
+                        "released": 2023,
+                        "genre": [
+                            "Sertanejo"
+                          ],
+                          "path": "C:/Music/Marília Mendonça/Decretos Reais/Pra Falar a Verdade.mp3",
+                          "picture_path": "C:/Music/Marília Mendonça/Decretos Reais/cover.jpg"
+                      },
+                      {
+                        "name": "Sendo Assim Muito Estranho (Cuida Bem de Mim)",
+                        "artist": "Marília Mendonça",
+                        "album": "Decretos Reais",
+                        "released": 2023,
+                        "genre": [
+                            "Sertanejo"
+                          ],
+                          "path": "C:/Music/Marília Mendonça/Decretos Reais/Sendo Assim Muito Estranho (Cuida Bem de Mim).mp3",
+                          "picture_path": "C:/Music/Marília Mendonça/Decretos Reais/cover.jpg"
+                      },
+                      {
+                        "name": "Te Amo Demais",
+                        "artist": "Marília Mendonça",
+                        "album": "Decretos Reais",
+                        "released": 2023,
+                        "genre": [
+                            "Sertanejo"
+                          ],
+                          "path": "C:/Music/Marília Mendonça/Decretos Reais/Te Amo Demais.mp3",
+                          "picture_path": "C:/Music/Marília Mendonça/Decretos Reais/cover.jpg"
+                      },
+                      {
+                        "name": "Te Amo Que Mais Posso Dizer (More Than I Can Say)",
+                        "artist": "Marília Mendonça",
+                        "album": "Decretos Reais",
+                        "released": 2023,
+                        "genre": [
+                            "Sertanejo"
+                          ],
+                          "path": "C:/Music/Marília Mendonça/Decretos Reais/Te Amo Que Mais Posso Dizer (More Than I Can Say).mp3",
+                          "picture_path": "C:/Music/Marília Mendonça/Decretos Reais/cover.jpg"
+                      },
+                      {
+                        "name": "Uma Vida a Mais",
+                        "artist": "Marília Mendonça",
+                        "album": "Decretos Reais",
+                        "released": 2023,
+                        "genre": [
+                            "Sertanejo"
+                          ],
+                          "path": "C:/Music/Marília Mendonça/Decretos Reais/Uma Vida a Mais.mp3",
+                          "picture_path": "C:/Music/Marília Mendonça/Decretos Reais/cover.jpg"
+                      }
+                ]
+        }
+    }
+    
+]
