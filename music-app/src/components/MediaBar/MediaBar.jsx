@@ -19,6 +19,7 @@ const MediaBar = () => {
   const [sliderMousePosition, setSliderMousePosition] = useState(0)
   let musicUrl = null
   const audioRef = createRef();
+  const buscaLocal = true
   
   useEffect(() => {
     if (!playing && (typeof currentMusic === 'undefined' || currentMusic === null)){
@@ -27,6 +28,10 @@ const MediaBar = () => {
   }, [musicStack])
   
   const loadMusicStream = async (id)=>{
+    if (buscaLocal){
+      return
+    }
+    
     try {
       const blob = await fetch(URL_API + "music/loadmusic/" + id)
       .then(response=> response.blob())

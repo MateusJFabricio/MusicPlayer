@@ -52,7 +52,7 @@ const NavBar = () => {
     setAlbunsResult([])
   }
   const handleLogoClick = ()=>{
-    navigate("/")
+    navigate("/MusicPlayer")
     setMusicResults([])
     setAlbunsResult([])
   }
