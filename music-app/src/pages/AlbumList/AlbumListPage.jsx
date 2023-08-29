@@ -4,14 +4,21 @@ import { useParams } from 'react-router-dom'
 import {MusicContext} from '../../context/MusicContext'
 import MusicCard from '../../components/MusicCard/MusicCard'
 import SearchTitle from '../../components/SearchTitle/SearchTitle'
+import songsJson from './../../assets/remove_asap/music/musicas.json'
 
 const AlbumListPage = () => {
   const URL_API = "http://localhost:3000/"
   const {albumName}=useParams();
   const [musicResults, setMusicResults] = useState([])
   const {musicStack, setMusicStack} = useContext(MusicContext)
+  const buscaLocal = true
 
   useEffect(() => {
+    if (buscaLocal){
+      const albumResult = songsJson.filter((obj)=> obj.album == albumName)
+      setMusicResults(albumResult)
+      return
+    }
     fetch(URL_API + "pesquisar/albuns/songs/" + albumName)
     .then(response => response.json())
     .then(data => {

@@ -6,6 +6,7 @@ import {MusicContext} from '../../context/MusicContext'
 import Carrousel from '../../components/Carrousel/Carrousel'
 import SearchTitle from '../../components/SearchTitle/SearchTitle'
 import GenreCard from '../../components/GenreCard/GenreCard'
+import albunsJson from './../../assets/remove_asap/music/albuns.json'
 
 const MusicSearchPage = () => {
   const URL_API = "http://localhost:3000/"
@@ -14,9 +15,10 @@ const MusicSearchPage = () => {
   const [searchMusicResults, setSearchMusicResults] = useState([])
   const [searchAlbunsResults, setSearchAlbunsResults] = useState([])
   const [searchGenresResults, setSearchGenresResults] = useState([])
+  const buscaLocal = true
 
   const buscaPorArtista = (artist)=>{
-    if (artist)
+    if (!buscaLocal && artist)
     {
         fetch(URL_API + "music/artist/search/" + artist)
       .then(response => response.json())
@@ -27,7 +29,7 @@ const MusicSearchPage = () => {
   }
 
   const buscaMusica = (id)=>{
-    if (id)
+    if (!buscaLocal&&id)
     {
       fetch(URL_API + "music/" + id)
       .then(response => response.json())
@@ -38,14 +40,20 @@ const MusicSearchPage = () => {
   }
 
   const buscarAlbuns = ()=>{
-    fetch(URL_API + "pesquisar/albuns")
-    .then(response => response.json())
-    .then(data => {
-      setSearchAlbunsResults(data)
-    })
+    if (buscaLocal){
+      setSearchAlbunsResults(albunsJson)
+    }else{
+      fetch(URL_API + "pesquisar/albuns")
+      .then(response => response.json())
+      .then(data => {
+        setSearchAlbunsResults(data)
+      })
+    }
   }
 
   const buscarGeneros = ()=>{
+    if (buscaLocal){ return}
+
     fetch(URL_API + "pesquisar/genres")
     .then(response => response.json())
     .then(data => {
