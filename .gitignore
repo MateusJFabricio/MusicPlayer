@@ -1,2 +1,6 @@
 .vscode
 api-music-app/node_modules
+music-app/node_modules
+dist
+out
+*.log*
