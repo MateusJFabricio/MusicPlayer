@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose')
+var bodyParser = require('body-parser');
 
 const debugMode = true
 
@@ -19,6 +20,7 @@ app.use(
     })
 )
 
+app.use( bodyParser.json({limit: '50mb'}) );
 app.use(express.json())
 
 //Chamada das rotas
@@ -29,31 +31,21 @@ const pesquisarRoutes = require('./routes/pesquisarRoutes')
 app.use('/pesquisar', pesquisarRoutes)
 
 const gerenciarRoutes = require('./routes/gerenciarRoutes')
+
 app.use('/gerenciar', gerenciarRoutes)
 
 //Rota inicial
 app.get('/', (req, res) =>{
     res.json({
-        message: 'Server running'
+        message: 'Server running - Debug mode'
     })
 })
 
-if (debugMode) {
-    mongoose.connect("mongodb://localhost:27017/geraldodb_dev")
-    .then(()=>{
-        console.log('App conectado ao banco de dados')
-        app.listen(3000)
-    })
-    .catch((err)=>{
-        console.log(err)
-    })
-}else{
-    mongoose.connect("mongodb://localhost:27017/geraldodb")
-    .then(()=>{
-        console.log('App conectado ao banco de dados')
-        app.listen(3000)
-    })
-    .catch((err)=>{
-        console.log(err)
-    })
-}
+mongoose.connect("mongodb://localhost:27017/geraldodb_dev")
+.then(()=>{
+    console.log('Contected to dev database')
+    app.listen(3000)
+})
+.catch((err)=>{
+    console.log(err)
+})

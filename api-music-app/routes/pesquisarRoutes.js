@@ -49,7 +49,7 @@ router.get("/albuns/songs/:album", async (req, res)=>{
     try {
         const albumName = req.params.album
         const regex = new RegExp(utils.accents_search_regex(albumName), "gi")
-        const musicas = await Music.where("album").regex(regex).limit(20);
+        const musicas = await Music.find({album: albumName})// where("album").regex(regex).limit(20);
         res.status(200).json(musicas)
     } catch (error) {
         res.status(500).json({error: error.message})

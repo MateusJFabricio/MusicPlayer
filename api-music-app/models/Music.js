@@ -15,8 +15,7 @@ const Music = mongoose.model('musicas',{
       required: true
     },
     albumId: {
-      type: String,
-      required: true
+      type: String
     },
     released: {
       type: Number,

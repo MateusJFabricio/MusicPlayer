@@ -26,4 +26,4 @@ const Albuns = mongoose.model('albuns',{
     }
 })
 
-module.exports = { Music}
+module.exports = { Albuns}
