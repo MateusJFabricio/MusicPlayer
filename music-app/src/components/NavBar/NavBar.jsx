@@ -1,12 +1,11 @@
-import React, { useState } from "react";
-import "./NavBar.css";
-import Logo from "../assets/logo.png"
-import SearchIcon from "../assets/search.png"
-import SettingIcon from "../assets/settings.png"
-import ExploreIcon from "../assets/explore.png"
-import { useEffect } from "react";
-import SearchItem from "./SearchItem";
+import React, { useState,useEffect } from "react";
 import { useParams, useNavigate } from 'react-router-dom'
+import "./NavBar.css";
+import Logo from "../../assets/logo.png"
+import SearchIcon from "../../assets/search.png"
+import SettingIcon from "../../assets/settings.png"
+import ExploreIcon from "../../assets/explore.png"
+import SearchItem from "./../SearchItem/SearchItem";
 
 const NavBar = () => {
   const URL_API = "http://localhost:3000/"

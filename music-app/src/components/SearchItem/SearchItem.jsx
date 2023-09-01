@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import noteIcon from '../assets/noteicon.png'
 import './SearchItem.css'
 
 const SearchItem = ({music, album, mouseOverUp, handleClick}) => {
