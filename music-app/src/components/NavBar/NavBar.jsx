@@ -16,6 +16,7 @@ const NavBar = () => {
   const [albunsResult, setAlbunsResult] = useState([])
   const [inputSearchValue, setInputSearchValue] = useState()
   const [suggestionItemMouseOver, setSuggestionItemMouseOver] = useState(false)
+  const [configButtonActive, setConfigButtonActive] = useState(false)
 
   const handleChangeSearchInput = (value)=>{
       setInputSearchValue(value)
@@ -85,6 +86,13 @@ const NavBar = () => {
       navigate("/musicsearch/")
   }
 
+  const handleConfigClick = ()=>{
+    setInputSearchValue("")
+    setMusicResults([])
+    setAlbunsResult([])
+    navigate("/login/")
+  }
+
   return (
     <div className="nav-bar">
       <div className="logo">
@@ -149,7 +157,11 @@ const NavBar = () => {
         </div>
         
       </div>
-      <div className="nav-buttons">
+      <div className={configButtonActive? "nav-buttons hover" : "nav-buttons"}
+        onMouseEnter={()=>setConfigButtonActive(true)} 
+        onMouseLeave={()=>setConfigButtonActive(false)}
+        onClick={handleConfigClick}
+        >
         <img className="button-config" alt="Button config" src={SettingIcon} />
       </div>
     </div>

@@ -9,7 +9,7 @@ const USB_NAME = "RVNELVVTQg=="
 const ROOT_USB = "Music" //Nunca comecar e nem finalizar com '/' ex: Music/artist1/album1
 const ROOT_LOCAL = "C:/Music" //Nunca finalizar com '/' ex: C:/Music/albunsImport
 
-router.get("/map", async (req, res)=>{
+router.post("/map", async (req, res)=>{
     try {
         let path = req.body['path']
         const extension = req.body['extension']
@@ -47,7 +47,7 @@ router.get("/map", async (req, res)=>{
         
         const fullPath = fileSource + path
 
-        const read = utils.ReadFolder(fullPath, ['', '.mp3'])
+        const read = utils.ReadFolder(fullPath, extension)
         
         res.status(200).json(read)
     } catch (error) {
