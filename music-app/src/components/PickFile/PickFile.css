@@ -9,7 +9,7 @@
     flex-direction: column;
     width: 500px;
     height: 500px;
-    background-color: rgba(71, 163, 255, 0.456);
+    background-color: rgb(71, 163, 255);
 }
 
 .pickfile-topbuttons{

@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import './PickFile.css'
 
-const PickFile = ({extension, inicialFolder = '/', onPickFile}) => {
+const PickFile = ({extension, inicialFolder = '/', pendrive, onPickFile}) => {
     const [path, setPath] = useState(inicialFolder)
-    const [pendriveSelected, setPendriveSelected] = useState(false)
+    const [pendriveSelected, setPendriveSelected] = useState(pendrive)
     const [files, setFiles] = useState([])
     const [error, setError] = useState()
     const URL_API = "http://localhost:3000/"
@@ -31,7 +31,6 @@ const PickFile = ({extension, inicialFolder = '/', onPickFile}) => {
                     setError()
                 }
             }
-            console.log(data)
         })
     }
     useEffect(() => {
@@ -109,7 +108,7 @@ const PickFile = ({extension, inicialFolder = '/', onPickFile}) => {
             </div>
             <div className="bottonbuttons-rightside">
                 <button onClick={()=>onPickFile({success: false})} className="button-cancel">Cancelar</button>
-                <button onClick={()=>onPickFile({success: true, path: path})} className="button-confirm">Confirmar</button>
+                <button onClick={()=>{!error?onPickFile({success: true, path: path, pendriveSelected: pendriveSelected}):null}} className="button-confirm">Confirmar</button>
             </div>
         </div>
     </div>

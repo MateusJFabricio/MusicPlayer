@@ -152,7 +152,7 @@ router.get("/loadMusic", async (req, res)=>{
 })
 
 //Autoimport mapea uma pasta e retorna um JSON com a estrutura para salvar
-router.get("/autoimport", async (req, res)=>{
+router.post("/autoimport", async (req, res)=>{
     try {              
         const path = req.body['path']
         let source = req.body['source']
@@ -212,7 +212,7 @@ router.get("/autoimport", async (req, res)=>{
                     throw new Error("Image cover.jpg not found in " + album.path)
                 }
                 const coverFile = imgFiles.find((img)=>img.file === 'cover.jpg')
-                const coverImg = utils.LoadPicture(coverFile.path)
+                const coverImg = path + artist.name + "/" + album.name + "/" + coverFile.file
 
                 //Busca as musicas
                 let songs = []
@@ -226,7 +226,7 @@ router.get("/autoimport", async (req, res)=>{
                             name: song.name,
                             file: song.file,
                             path: path + artist.name + "/" + album.name + "/" + song.file,
-                            image: songImg ? utils.LoadPicture(songImg.path) : null
+                            image: songImg ? path + artist.name + "/" + album.name + "/" + songImg.file: null
                         })
                     }
                 })
