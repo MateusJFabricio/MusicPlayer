@@ -18,6 +18,7 @@
     width: 80%;
     height: 20px;
     top: 0;
+    overflow: hidden;
 }
 
 .search-item-artist{
@@ -26,6 +27,17 @@
     left: 80px;
     width: 80%;
     height: 20px;
+    overflow: hidden;
+}
+
+.search-item-artist-upper{
+    position: absolute;
+    font-size: 30px;
+    top: 5px;
+    left: 80px;
+    width: 80%;
+    height: 30px;
+    overflow: hidden;
 }
 
 .search-item-image{
@@ -33,4 +45,8 @@
     width: 50px;
     height: 50px;
     border-radius: 25px;
+}
+
+.hide{
+    display: none;
 }

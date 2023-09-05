@@ -58,7 +58,7 @@ router.post("/map", async (req, res)=>{
     }
 })
 
-router.get("/loadpicture", async (req, res)=>{
+router.post("/loadpicture", async (req, res)=>{
     try {
         const path = req.body['path']
         let source = req.body['source']
@@ -71,8 +71,8 @@ router.get("/loadpicture", async (req, res)=>{
             throw new Error("Parameter \"source\" missed")
         }
 
-        if (!path.endsWith(".mp3")){
-            throw new Error("The name must end with .mp3")
+        if (!path.endsWith(".jpg")){
+            throw new Error("The name must end with .jpg")
         }
 
         //Determina o diretorio
@@ -101,7 +101,7 @@ router.get("/loadpicture", async (req, res)=>{
     }
 })
 
-router.get("/loadMusic", async (req, res)=>{
+router.post("/loadMusic", async (req, res)=>{
     try {              
         const path = req.body['path']
         let source = req.body['source']
@@ -268,6 +268,7 @@ router.post("/autoimport", async (req, res)=>{
 })
 
 router.post("/save", (req, res)=>{
+    let fileErrorMessage = []
     try {
         const conflit = req.body['conflit']
         const data = req.body['data']
@@ -308,7 +309,6 @@ router.post("/save", (req, res)=>{
 
         const analiseDadosAntesPost = async ()=>{
             //Verifica se o arquivo ja existe
-            let fileErrorMessage = []
             try {    
                 for await(artist of data){
                     for await(album of artist.albuns){
@@ -336,7 +336,8 @@ router.post("/save", (req, res)=>{
                 }
     
                 if (fileErrorMessage.length > 0){
-                    throw new Error(fileErrorMessage.toString())
+
+                    throw new Error(fileErrorMessage.map((message)=>message + '\n').join(''))
                 }
             } catch (error) {
                 throw new Error("Erro na verificacao. Erro: " + error.message)
@@ -378,13 +379,14 @@ router.post("/save", (req, res)=>{
                 let jsonAlbumSave = []
                 data.forEach((artist)=>{
                     artist.albuns.forEach((album)=>{
+                        const albumImage = utils.LoadPicture( fullPath + album.image)
                         //Monta o album
                         const albumJson = {
                             name: album.name,
                             released: album.released,
                             genre: album.genre,
                             artist: artist.artist,
-                            image: album['image']
+                            image: albumImage
                         }
 
                         const result = new Albuns(albumJson).validateSync()
@@ -404,7 +406,7 @@ router.post("/save", (req, res)=>{
                                 released: album.released,
                                 genre: album.genre,
                                 path: albumFolder + "/" + song.file,
-                                image: song['image'] ? song['image'] : album['image']
+                                image: song.image ? utils.LoadPicture( fullPath + song.image) : albumImage
                             }
                 
                             //Validacao antes do post
@@ -455,7 +457,7 @@ router.post("/save", (req, res)=>{
             try{
                 await analiseDadosAntesPost()
                 await moveArquivos()
-                res.status(200).json({message: 'done'})
+                res.status(200).json({message: 'Concluido com sucesso'})
             }catch(error){
                 res.status(500).json({error: error.message})
             }

@@ -1,0 +1,58 @@
+.showmessage-blur{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: rgba(128, 128, 128, 0.68);
+}
+
+.showmessage-container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    color: black;
+    max-height: 500px;
+}
+
+.title-container{
+    display: flex;
+    align-items: center;
+    height: 30px;
+    font-size: 20px;
+    padding: 10px;
+    border-bottom: 1px solid rgb(138, 137, 137);
+}
+
+.message-container{
+    padding: 5px;
+    border-bottom: 1px solid rgb(181, 181, 181);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.button-container{
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 10px;
+}
+.btnConfirmar{
+    position: relative;
+    width: 100px;
+    height: 30px;
+    right: 0;
+    background-color: #006FE7;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+.mouseOver{
+    background-color: #0044ff;
+}

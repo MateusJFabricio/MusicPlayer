@@ -1,6 +1,6 @@
 import React from 'react'
 import './GenreCard.css'
-const GenreCard = ({title}) => {
+const GenreCard = ({title, onClick}) => {
 
   const pickRandomColor = (transparencia)=>{
     //Gera o numero aleatório entre 0 e 360
@@ -34,7 +34,7 @@ const GenreCard = ({title}) => {
   }
 
   return (
-    <div style={genrecardContainer}>
+    <div style={genrecardContainer} onClick={()=>onClick(title)}>
         <div style={genrecardDestaque}>
             <div className="genrecard-title">{title}</div>
         </div>

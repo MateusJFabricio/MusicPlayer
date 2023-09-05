@@ -3,7 +3,6 @@
     width: 100%;
     height: 100%;
     min-width: 800px;
-    overflow: auto;
 }
 
 .autoimport-container{
@@ -31,6 +30,7 @@
 .btnSelected{
     background-color: lime;
 }
+
 .pendriveLocal{
     display: flex;
     height: 100%;
@@ -64,6 +64,10 @@
     right: 10px;
     background-color: rgba(255, 0, 0, 0.625);
 }
+.btnLogoff{
+    position: absolute;
+    right: 230px;
+}
 .pageEdit input{
     width: 320px;
     height: 25px;
@@ -74,7 +78,7 @@
 .columnsEdit{
     display: flex;
     flex-direction: row;
-    height: 100%;
+    height: calc(100% - 50px);
     background-color: rgba(255, 255, 255, 0.616);
 }
 
@@ -85,7 +89,6 @@
 .jsonView{
     display: flex;
     flex-direction: row;
-    /* height: 100%; */
     background-color: rgb(255, 255, 255);
     overflow: auto;
 }
@@ -105,29 +108,12 @@
     font-size: 30px;
     font-weight: bold;
 }
-/* .albunsContainer ul{
-    list-style-type: none;
-    margin-block-start: 10px;
-    margin-block-end: 0;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    padding-inline-start: 0;
-    font-size: 25px;
-    background-color: rgba(29, 108, 193, 0.733);
-}
-
-.albunsContainer li{
-    border-style: solid;
-    border-top: 0;
-    border-left: 0;
-    border-right: 0;
-    text-align: start;
-} */
 .musicContainer{
     display: flex;
     flex-direction: column;
     width: 100%;
-    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .musicContainer-title{
@@ -175,6 +161,7 @@
 .informacaoEdit-right img{
     position: relative;
     width: 150px;
+    border: 1px solid black;
 }
 
 .musicList{

@@ -31,8 +31,10 @@ const pesquisarRoutes = require('./routes/pesquisarRoutes')
 app.use('/pesquisar', pesquisarRoutes)
 
 const gerenciarRoutes = require('./routes/gerenciarRoutes')
-
 app.use('/gerenciar', gerenciarRoutes)
+
+const loginRoutes = require('./routes/loginRoutes')
+app.use('/login', loginRoutes)
 
 //Rota inicial
 app.get('/', (req, res) =>{

@@ -1,19 +1,30 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import './TreeViewItem.css'
 import ExpandirIcon from '../../../assets/expandir.png'
 import ExpandidoIcon from '../../../assets/expandido.png'
-const TreeViewItem = ({children, text, nivel, parent, onClick}) => {
+const TreeViewItem = ({children, text, nivel, parent, onClick, collapse}) => {
     const [expand, setExpand] = useState(false)
-    const [recParent] = useState([...parent, text])
+    const [receivedParent, setReceivedParent] = useState([...parent, text])
     const [selected, setSelected] = useState(false)
 
     const handleItemClicked = ()=>{
         if (children){
             setExpand(!expand)
         }
-        onClick(recParent)
+        onClick(receivedParent)
         setSelected(!expand)
     }
+
+    useEffect(()=>{
+        if (collapse){
+            setExpand(false)
+        }
+    }, [collapse])
+
+    useEffect(() => {
+        setReceivedParent([...parent, text])
+    }, [text])
+    
 
     const style = {
         width: (nivel * 10) + 'px'

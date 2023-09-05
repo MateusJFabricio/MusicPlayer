@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const {Music} = require('../models/Music')
+const {Albuns} = require('../models/Album')
 const utils = require("../utils/utils")
 
 //Busca todos os albuns - SELECT Algum, Image -> GROUP BY Album
@@ -70,8 +71,30 @@ router.get("/genres", async (req, res)=>{
 router.get("/genres/:genre", async (req, res)=>{
     try {
         const genre = req.params.genre
-        const musicas = await Music.find({genre: genre})
-        res.status(200).json(musicas)
+        const albuns = await Albuns.find({genre: genre}).limit(10)
+        res.status(200).json({
+            genre: genre,
+            albuns: albuns
+        })
+    } catch (error) {
+        res.status(500).json({error: error.message})
+    }
+})
+
+//Busca albuns por artista
+router.get("/artist/search/:name", async (req, res)=>{
+    try {
+        const artistName = req.params.name
+        const regex = new RegExp(utils.accents_search_regex(artistName), "gi")
+        const albuns = await Albuns.where("artist").regex(regex);
+        let albumDistinct = []
+        albuns.forEach((album)=>{
+            if (!albumDistinct.find((element)=>element.artist === album.artist))
+            {
+                albumDistinct.push(album)
+            }
+        })
+        res.status(200).json(albumDistinct)
     } catch (error) {
         res.status(500).json({error: error.message})
     }
