@@ -8,14 +8,19 @@ import AlbumListPage from './pages/AlbumList/AlbumListPage.jsx';
 import {createBrowserRouter,RouterProvider} from "react-router-dom";
 import MainPage from './pages/MainPage/MainPage.jsx';
 import {MusicContextProvider} from './context/MusicContext.jsx'
+import {LoginContextProvider} from './context/LoginContext.jsx'
+import LoginPage from './pages/Login/LoginPage.jsx';
+import ConfigPage from './pages/ConfigPage/ConfigPage.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: (
-      <MusicContextProvider>
-        <App/>
-      </MusicContextProvider>
+      <LoginContextProvider>
+        <MusicContextProvider>
+          <App/>
+        </MusicContextProvider>
+      </LoginContextProvider>
       ),
     children:[
       {
@@ -33,6 +38,18 @@ const router = createBrowserRouter([
       {
         path: "/album/:albumName",
         element: <AlbumListPage/>
+      },
+      {
+        path: "/login/",
+        element: (
+            <LoginPage/>
+        )
+      },
+      {
+        path: "/configpage/",
+        element: (
+            <ConfigPage/>
+        )
       }
     ]
   }

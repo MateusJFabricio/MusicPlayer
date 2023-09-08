@@ -1,6 +1,9 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose')
+var bodyParser = require('body-parser');
+
+const debugMode = true
 
 //Instalando CORS
 const cors=require("cors");
@@ -17,6 +20,7 @@ app.use(
     })
 )
 
+app.use( bodyParser.json({limit: '50mb'}) );
 app.use(express.json())
 
 //Chamada das rotas
@@ -26,16 +30,22 @@ app.use('/music', musicRoutes)
 const pesquisarRoutes = require('./routes/pesquisarRoutes')
 app.use('/pesquisar', pesquisarRoutes)
 
+const gerenciarRoutes = require('./routes/gerenciarRoutes')
+app.use('/gerenciar', gerenciarRoutes)
+
+const loginRoutes = require('./routes/loginRoutes')
+app.use('/login', loginRoutes)
+
 //Rota inicial
 app.get('/', (req, res) =>{
     res.json({
-        message: 'Calma aí jovem que eu estou rodando sim'
+        message: 'Server running - Debug mode'
     })
 })
 
-mongoose.connect("mongodb://localhost:27017/geraldodb")
+mongoose.connect("mongodb://localhost:27017/geraldodb_dev")
 .then(()=>{
-    console.log('App conectado ao banco de dados')
+    console.log('Contected to dev database')
     app.listen(3000)
 })
 .catch((err)=>{

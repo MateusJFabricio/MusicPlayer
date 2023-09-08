@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import {MusicContext} from '../../context/MusicContext'
 import { useContext } from 'react'
-import MusicQueueDetails from '../../components/MusicQueueDetails'
+import MusicStackDetails from '../../components/MusicStackDetails/MusicStackDetails'
 import './MenuLateral.css'
 
 const MenuLateral = () => {
@@ -16,7 +16,7 @@ const MenuLateral = () => {
                     idList++
                     return (
                         <li key={idList}>
-                            <MusicQueueDetails music={music}/>
+                            <MusicStackDetails music={music}/>
                         </li>
                         )})
             }

@@ -1,7 +1,6 @@
 import React from 'react'
 import './MainPage.css'
 import nomusic from '../../assets/nomusic.png'
-import MusicQueueDetails from '../../components/MusicQueueDetails'
 import {MusicContext} from '../../context/MusicContext'
 import { useContext, useState, useEffect } from 'react'
 

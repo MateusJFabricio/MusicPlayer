@@ -1,12 +1,11 @@
-import React, { useState } from "react";
-import "./NavBar.css";
-import Logo from "../assets/logo.png"
-import SearchIcon from "../assets/search.png"
-import SettingIcon from "../assets/settings.png"
-import ExploreIcon from "../assets/explore.png"
-import { useEffect } from "react";
-import SearchItem from "./SearchItem";
+import React, { useState,useEffect } from "react";
 import { useParams, useNavigate } from 'react-router-dom'
+import "./NavBar.css";
+import Logo from "../../assets/logo.png"
+import SearchIcon from "../../assets/search.png"
+import SettingIcon from "../../assets/settings.png"
+import ExploreIcon from "../../assets/explore.png"
+import SearchItem from "./../SearchItem/SearchItem";
 
 const NavBar = () => {
   const URL_API = "http://localhost:3000/"
@@ -15,8 +14,10 @@ const NavBar = () => {
   const [btnExplorerMouseOver, setBtnExplorerMouseOver] = useState(false)
   const [musicResults, setMusicResults] = useState([])
   const [albunsResult, setAlbunsResult] = useState([])
+  const [artistResult, setArtistResult] = useState([])
   const [inputSearchValue, setInputSearchValue] = useState()
   const [suggestionItemMouseOver, setSuggestionItemMouseOver] = useState(false)
+  const [configButtonActive, setConfigButtonActive] = useState(false)
 
   const handleChangeSearchInput = (value)=>{
       setInputSearchValue(value)
@@ -35,9 +36,16 @@ const NavBar = () => {
         .then(data => {
           setAlbunsResult(data.slice(0, 3))
         })
+
+        fetch(URL_API + "pesquisar/artist/search/" + value)
+        .then(response => response.json())
+        .then(data => {
+          setArtistResult(data.slice(0, 3))
+        })
       }else{
         setMusicResults([])
         setAlbunsResult([])
+        setArtistResult([])
       }
   }
 
@@ -45,16 +53,27 @@ const NavBar = () => {
     navigate("/musicsearch/id:" + music._id)
     setMusicResults([])
     setAlbunsResult([])
+    setArtistResult([])
   }
-  const handleListedAlbumClick = (album)=>{
-    navigate("/album/"+ album.name)
+  const handleListedAlbumClick = (data)=>{
+    navigate("/album/"+ data.name)
     setMusicResults([])
     setAlbunsResult([])
+    setArtistResult([])
   }
+
+  const handleListedArtistClick = (data)=>{
+    navigate("/musicsearch/artist:"+ data.artist)
+    setMusicResults([])
+    setAlbunsResult([])
+    setArtistResult([])
+  }
+
   const handleLogoClick = ()=>{
     navigate("/")
     setMusicResults([])
     setAlbunsResult([])
+    setArtistResult([])
   }
   const handleInputKeyDown = (e)=>{
     if(e.key === "Enter"){
@@ -67,6 +86,7 @@ const NavBar = () => {
       setInputSearchValue("")
       setMusicResults([])
       setAlbunsResult([])
+      setArtistResult([])
       navigate("/musicsearch/search:" + inputSearchValue, {replace: true})
     }
   }
@@ -76,6 +96,7 @@ const NavBar = () => {
     {
       setMusicResults([])
       setAlbunsResult([])
+      setArtistResult([])
     }
   }
 
@@ -83,7 +104,16 @@ const NavBar = () => {
       setInputSearchValue("")
       setMusicResults([])
       setAlbunsResult([])
+      setArtistResult([])
       navigate("/musicsearch/")
+  }
+
+  const handleConfigClick = ()=>{
+    setInputSearchValue("")
+    setMusicResults([])
+    setAlbunsResult([])
+    setArtistResult([])
+    navigate("/login/")
   }
 
   return (
@@ -107,16 +137,33 @@ const NavBar = () => {
             placeholder="Busque as suas musicas digitando aqui..."
           />
           <button className="botao-pesquisar" onClick={handleIRButton}>IR</button>
-          <div className={musicResults.length > 0 || albunsResult.length > 0 ? "search-suggestions" : "search-suggestions hidden"}>
+          <div className={musicResults.length > 0 || albunsResult.length > 0 || artistResult.length > 0? "search-suggestions" : "search-suggestions hidden"}>
             <ul>
+              {/* Map dos artistas */}
+              {artistResult.length > 0 ? (<li key="artist">Artistas</li>):null}
+              {
+                
+                artistResult.map((artist, index)=>(
+                  <li key={index}>
+                    <SearchItem 
+                      className="search-suggestions-item"
+                      type={'artist'}
+                      data={artist}
+                      mouseOverUp = {setSuggestionItemMouseOver}
+                      handleClick={handleListedArtistClick}
+                    />
+                  </li>
+                ))
+              }
               {/* Map das musicas */}
               {musicResults.length > 0 ?(<li key="musicas">Musicas</li>):null}
               {
                 musicResults.map((music)=>(
                   <li key={music._id}>
                     <SearchItem 
-                      className="search-suggestions-item" 
-                      music={music}
+                      className="search-suggestions-item"
+                      type={'music'}
+                      data={music}
                       mouseOverUp = {setSuggestionItemMouseOver}
                       handleClick={handleListedMusicClick}
                     />
@@ -130,8 +177,9 @@ const NavBar = () => {
                 albunsResult.map((album, index)=>(
                   <li key={index}>
                     <SearchItem 
-                      className="search-suggestions-item" 
-                      album={album}
+                      className="search-suggestions-item"
+                      type={'album'}
+                      data={album}
                       mouseOverUp = {setSuggestionItemMouseOver}
                       handleClick={handleListedAlbumClick}
                     />
@@ -150,7 +198,11 @@ const NavBar = () => {
         </div>
         
       </div>
-      <div className="nav-buttons">
+      <div className={configButtonActive? "nav-buttons hover" : "nav-buttons"}
+        onMouseEnter={()=>setConfigButtonActive(true)} 
+        onMouseLeave={()=>setConfigButtonActive(false)}
+        onClick={handleConfigClick}
+        >
         <img className="button-config" alt="Button config" src={SettingIcon} />
       </div>
     </div>

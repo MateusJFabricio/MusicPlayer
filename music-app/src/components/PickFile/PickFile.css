@@ -1,0 +1,101 @@
+.pickfile-container{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 500px;
+    background-color: rgb(71, 163, 255);
+}
+
+.pickfile-topbuttons{
+    display: flex;
+    flex-direction: row;
+    height: 40px;
+    gap: 10px;
+    padding: 5px;
+    background-color: rgba(255, 255, 255, 0.567);
+}
+.button-selected{
+    background-color: rgb(35, 146, 193);
+}
+.pickfile-topbuttons button{
+    width: 100px;
+}
+.pickfile-topbuttons span{
+    font-size: 30px;
+    width: 400px;
+}
+
+.pickfile-inputpath{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    font-size: 20px;
+    padding: 4px;
+}
+
+.pickfile-inputpath input{
+    width: 100%;
+}
+
+.pickfile-listfileitens{
+    border: 1px;
+    border-style: solid;
+}
+
+.pickfile-listfileitens ul{
+    list-style: none;
+    overflow: auto;
+    height: 370px;
+    margin-block: 0;
+    margin-inline: 0;
+    padding-inline: 2px;
+    font-size: 25px;
+}
+
+.pickfile-listfileitens li{
+    border-color: black;
+    border-style: solid;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+}
+
+.pickfile-listfileitens-error{
+    background-color: red;
+}
+
+.pickfile-bottonbuttons{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    height: 100%;
+    padding: 5px;
+}
+
+.bottonbuttons-leftside{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    width: 50%;
+    align-items: center;
+    padding: 5px;
+    background-color: rgba(255, 255, 255, 0.122);
+}
+
+.bottonbuttons-rightside{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    gap: 5px;
+    width: 50%;
+}
+
+.bottonbuttons-rightside button{
+    width: 50%;
+}

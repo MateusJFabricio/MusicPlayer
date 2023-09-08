@@ -1,7 +1,7 @@
 import './App.css'
 import MediaBar from './components/MediaBar/MediaBar'
 import MenuLateral from './components/MenuLateral/MenuLateral'
-import NavBar from './components/NavBar'
+import NavBar from './components/NavBar/NavBar'
 
 //Rotas
 import { Outlet } from 'react-router-dom'

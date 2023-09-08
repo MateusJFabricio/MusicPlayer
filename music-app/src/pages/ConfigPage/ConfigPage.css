@@ -1,0 +1,199 @@
+.configpage-container{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-width: 800px;
+}
+
+.autoimport-container{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.pageEdit{
+    display: flex;
+    flex-direction: row;
+    height: 40px;
+    padding: 5px;
+    text-align: center;
+    align-items: center;
+    font-size: 20px;
+    gap: 5px;
+    background-color: rgba(255, 255, 255, 0.556);
+}
+
+.pageEdit button{
+    height: 30px;
+    width: 90px;
+}
+.btnSelected{
+    background-color: lime;
+}
+
+.pendriveLocal{
+    display: flex;
+    height: 100%;
+    width: 200px;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: 1px solid white;
+}
+
+.diretorio{
+    display: flex;
+    height: 100%;
+    width: 580px;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: 1px solid white;
+}
+.btnViewJson{
+    position: absolute;
+    right: 120px;
+}
+.btnImport{
+    background-color: lime;
+}
+.btnRun{
+    position: absolute;
+    right: 10px;
+    background-color: rgba(255, 0, 0, 0.625);
+}
+.btnLogoff{
+    position: absolute;
+    right: 230px;
+}
+.pageEdit input{
+    width: 320px;
+    height: 25px;
+    font-size: 20px;
+    overflow: auto;
+}
+
+.columnsEdit{
+    display: flex;
+    flex-direction: row;
+    height: calc(100% - 50px);
+    background-color: rgba(255, 255, 255, 0.616);
+}
+
+.columnsEditHidde{
+    display: none;
+    visibility: hidden;
+}
+.jsonView{
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(255, 255, 255);
+    overflow: auto;
+}
+.albunsContainer{
+    display: block;
+    overflow-y: auto;
+    width: 400px;
+    background-color: rgba(24, 131, 245, 0.733);
+    text-align: center;
+    border-style: solid;
+    border-top: 0;
+    border-left: 0;
+    border-bottom: 0;
+}
+
+.albunsContainer span{
+    font-size: 30px;
+    font-weight: bold;
+}
+.musicContainer{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.musicContainer-title{
+    font-size: 30px;
+    text-align: center;
+    border-bottom: 1px;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-style: solid;
+}
+
+.informacaoEdit{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.informacaoEdit-left{
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    width: 50%;
+    gap: 5px;
+}
+.informacaoEdit-container{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+.informacaoEdit-container span{
+    width: 100px;
+    font-size: 20px;
+}
+.informacaoEdit-container input{
+    width: 100%;
+}
+.informacaoEdit-right{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    width: 50%;
+    padding: 5px;
+}
+.informacaoEdit-right img{
+    position: relative;
+    width: 150px;
+    border: 1px solid black;
+}
+
+.musicList{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.musicList ul{
+    list-style-type: decimal-leading-zero;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 2em;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+    text-align: left;
+    width: 100%;
+}
+
+.musicList li{
+    font-size: 20px;
+    border-style: solid;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+}
+
+.buttonAddMusic{
+    border-style: solid ;
+    border-width: 1px;
+    background-color: rgb(26, 138, 208);
+    width: 90%;
+}

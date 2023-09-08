@@ -1,5 +1,6 @@
 const utils = require("../utils/utils")
 const {Music} = require('../models/Music')
+const {Albuns} = require('../models/Album')
 const router = require('express').Router()
 var fs = require('fs');
 
@@ -65,9 +66,12 @@ router.get("/name/search/:name", async (req, res)=>{
 router.get("/artist/:name", async (req, res)=>{
     try {
         const name = req.params.name
-        const music = await Music.find({artist: name});
+        const albuns = await Albuns.find({artist: name});
 
-        res.status(200).json(music)
+        res.status(200).json({
+            artist: name,
+            albuns: albuns
+        })
     } catch (error) {
         res.status(500).json({error: error})
     }
@@ -134,7 +138,7 @@ router.post('/', async (req, res)=>{
             const salvarMusica = async () => await musica.save()
             salvarMusica()
         })
-        res.status(201).json({mensagem: "Done"});
+        res.status(200).json({mensagem: "Done"});
     }catch(error){
         res.status(500).json({error: error});
     }

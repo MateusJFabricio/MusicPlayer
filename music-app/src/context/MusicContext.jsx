@@ -5,7 +5,7 @@ export const MusicContext = createContext();
 export const MusicContextProvider = ({children})=>{
     const [stackLength, setStackLength] = useState(0)
     const [musicStack, setMusicStack] = useState([])
-    const onMusicStackAdded = new Event("onMusicStackAdded");
+    const onMusicStackAdded = new Event("onMusicStackAdded"); 
     const onMusicStackRemoved = new Event("onMusicStackRemoved");
 
     //Stack Changed
