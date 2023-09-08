@@ -1,6 +1,6 @@
 import React from 'react'
 import './MusicDetails.css'
-import noteIcon from "../../assets/noteIcon.png"
+import noteIcon from "../../assets/noteicon.png"
 
 const MusicDetails = ({music}) => {
     if (!music){
