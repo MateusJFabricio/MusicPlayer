@@ -16,6 +16,7 @@ import CartIcon from "../../assets/cart.png"
 import SearchItem from "./../SearchItem/SearchItem";
 import ShopItemDetails from "../ShopItemDetails/ShopItemDetails";
 import ShowMessage from "../ShowMessage/ShowMessage";
+import Keyboard from "../Keyboard/Keyboard";
 
 const NavBar = () => {
   const navigate = useNavigate()
@@ -39,6 +40,7 @@ const NavBar = () => {
   const [suggestionItemMouseOver, setSuggestionItemMouseOver] = useState(false)
   const [configButtonActive, setConfigButtonActive] = useState(false)
   const [showMessageCancelCompra, setShowMessageCancelCompra] = useState(false)
+  const [showKeyboard, setShowKeyboard] = useState(false)
 
   useEffect(()=>{
     fetch(URL_API.current + "buy/approved")
@@ -244,12 +246,20 @@ const NavBar = () => {
 
   }, [musicApproved])
 
+  const handleKeyboardClose = (value)=>{
+    setInputSearchValue(value)
+    setShowKeyboard(false)
+    handleChangeSearchInput(value)
+  }
   return (
     <div className="nav-bar">
       <div className={logged?"loggedBar":null}></div>
       <div className="logo">
         <img onClick={handleLogoClick} className="logo-image" alt="Logo" src={Logo} />
         <span onClick={handleLogoClick}>GeraldoPlayer</span>
+      </div>
+      <div>
+        <button onClick={()=>setShowKeyboard(value=>!value)}>Teclado</button>
       </div>
       <div className="search-bar">
         <div className="search-bar-frame">
@@ -357,6 +367,7 @@ const NavBar = () => {
         <button className="floatingmenu-item" onClick={handlebtnApproveClick}>Approve</button>
         <button className="floatingmenu-item" onClick={handlebtnEditClick}>Edit</button>
       </div>
+      {showKeyboard&&<Keyboard onClose={handleKeyboardClose}/>}
     </div>
   );
 };

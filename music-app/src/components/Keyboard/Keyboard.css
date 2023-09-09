@@ -1,0 +1,42 @@
+.keyboard-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: rgba(128, 128, 128, 0.68);
+}
+
+.keyboardinput-container{
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(167, 167, 167);
+    width: 900px;
+    height: 50px;
+}
+.keyboard-input{
+    width: 600px;
+    font-size: 30px;
+}
+.keyboard-close{
+    position: absolute;
+    height: 100%;
+    right: 20px;
+    width: 50px;
+}
+
+.keyboard-keys{
+    display: flex;
+    position: relative;
+    width: 900px;
+    height: 200px;
+    background-color: rgb(79, 79, 79);
+}
