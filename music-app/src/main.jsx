@@ -2,25 +2,34 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
-import MusicSearchPage from './pages/MusicSearch/MusicSearchPage.jsx';
-import AlbumListPage from './pages/AlbumList/AlbumListPage.jsx';
 
 import {createBrowserRouter,RouterProvider} from "react-router-dom";
-import MainPage from './pages/MainPage/MainPage.jsx';
 import {MusicContextProvider} from './context/MusicContext.jsx'
 import {LoginContextProvider} from './context/LoginContext.jsx'
+import { ApiContextProvider } from './context/ApiContext.jsx';
+import { BuyContextProvider } from './context/BuyContext.jsx';
+
+import MainPage from './pages/MainPage/MainPage.jsx';
 import LoginPage from './pages/Login/LoginPage.jsx';
 import ConfigPage from './pages/ConfigPage/ConfigPage.jsx';
+import MusicSearchPage from './pages/MusicSearch/MusicSearchPage.jsx';
+import AlbumListPage from './pages/AlbumList/AlbumListPage.jsx';
+import ApprovePage from './pages/Approve/ApprovePage.jsx';
+
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: (
-      <LoginContextProvider>
-        <MusicContextProvider>
-          <App/>
-        </MusicContextProvider>
-      </LoginContextProvider>
+      <ApiContextProvider>
+        <LoginContextProvider>
+          <MusicContextProvider>
+            <BuyContextProvider>
+              <App/>
+            </BuyContextProvider>
+          </MusicContextProvider>
+        </LoginContextProvider>
+      </ApiContextProvider>
       ),
     children:[
       {
@@ -49,6 +58,12 @@ const router = createBrowserRouter([
         path: "/configpage/",
         element: (
             <ConfigPage/>
+        )
+      },
+      {
+        path: "/approve/",
+        element: (
+            <ApprovePage/>
         )
       }
     ]

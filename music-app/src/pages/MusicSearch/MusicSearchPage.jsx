@@ -133,8 +133,8 @@ const MusicSearchPage = () => {
             {/* Resultado da pesquisa */}
             {searchMusicResults.length > 0 ?<SearchTitle title="Musica selecionada"/>:null}
             {searchMusicResults.map((music, index)=>(
-              <div className="musicsearchpage-musiclistcontainer">
-                <MusicCard key={index} music={music}/>
+              <div key={index} className="musicsearchpage-musiclistcontainer">
+                <MusicCard music={music}/>
               </div>
             ))}
 

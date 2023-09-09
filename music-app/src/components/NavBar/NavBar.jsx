@@ -1,23 +1,52 @@
-import React, { useState,useEffect } from "react";
+import React, { useState,useContext,useEffect, useRef } from "react";
 import { useParams, useNavigate } from 'react-router-dom'
-import "./NavBar.css";
+import "./NavBar.scoped.css";
+
+import {LoginContext} from '../../context/LoginContext'
+import { ApiContext } from "../../context/ApiContext";
+import { BuyContext } from "../../context/BuyContext";
+import {MusicContext} from '../../context/MusicContext'
+
 import Logo from "../../assets/logo.png"
 import SearchIcon from "../../assets/search.png"
 import SettingIcon from "../../assets/settings.png"
 import ExploreIcon from "../../assets/explore.png"
+import CartIcon from "../../assets/cart.png"
+
 import SearchItem from "./../SearchItem/SearchItem";
+import ShopItemDetails from "../ShopItemDetails/ShopItemDetails";
+import ShowMessage from "../ShowMessage/ShowMessage";
 
 const NavBar = () => {
-  const URL_API = "http://localhost:3000/"
-
   const navigate = useNavigate()
+
+  const {URL_API} = useContext(ApiContext) 
+  const {buyingList, setBuyingList, waitingApprove, setWaitingApprove} = useContext(BuyContext) 
+  const {logged, setLogged, level, setLevel} = useContext(LoginContext)
+  const {musicStack, setMusicStack} = useContext(MusicContext)
+
+  const interval = useRef()
+  const musicApprovedRef = useRef(false)
+  const [musicApproved, setMusicApproved] = useState(false)
+
   const [btnExplorerMouseOver, setBtnExplorerMouseOver] = useState(false)
+  const [showFloatMenuConfig, setShowFloatMenuConfig] = useState(false)
+  const [showFloatMenuShopping, setShowFloatMenuShopping] = useState(false)
   const [musicResults, setMusicResults] = useState([])
   const [albunsResult, setAlbunsResult] = useState([])
   const [artistResult, setArtistResult] = useState([])
   const [inputSearchValue, setInputSearchValue] = useState()
   const [suggestionItemMouseOver, setSuggestionItemMouseOver] = useState(false)
   const [configButtonActive, setConfigButtonActive] = useState(false)
+  const [showMessageCancelCompra, setShowMessageCancelCompra] = useState(false)
+
+  useEffect(()=>{
+    fetch(URL_API.current + "buy/approved")
+      .then(response => response.json())
+      .then(data => {
+          setMusicApproved(data.approved)
+      })
+  }, [])
 
   const handleChangeSearchInput = (value)=>{
       setInputSearchValue(value)
@@ -25,19 +54,19 @@ const NavBar = () => {
       //Realiza a busca no banco de dados
       if (value.length >= 3)
       {
-        fetch(URL_API + "music/name/search/" + value)
+        fetch(URL_API.current + "music/name/search/" + value)
         .then(response => response.json())
         .then(data => {
           setMusicResults(data.slice(0, 3))
         })
 
-        fetch(URL_API + "pesquisar/albuns/search/" + value)
+        fetch(URL_API.current + "pesquisar/albuns/search/" + value)
         .then(response => response.json())
         .then(data => {
           setAlbunsResult(data.slice(0, 3))
         })
 
-        fetch(URL_API + "pesquisar/artist/search/" + value)
+        fetch(URL_API.current + "pesquisar/artist/search/" + value)
         .then(response => response.json())
         .then(data => {
           setArtistResult(data.slice(0, 3))
@@ -55,6 +84,7 @@ const NavBar = () => {
     setAlbunsResult([])
     setArtistResult([])
   }
+
   const handleListedAlbumClick = (data)=>{
     navigate("/album/"+ data.name)
     setMusicResults([])
@@ -75,11 +105,13 @@ const NavBar = () => {
     setAlbunsResult([])
     setArtistResult([])
   }
+
   const handleInputKeyDown = (e)=>{
     if(e.key === "Enter"){
       handleIRButton();
     }
   }
+
   const handleIRButton = ()=>{
     if (inputSearchValue && inputSearchValue.length > 0)
     {
@@ -107,17 +139,114 @@ const NavBar = () => {
       setArtistResult([])
       navigate("/musicsearch/")
   }
-
   const handleConfigClick = ()=>{
+    setShowFloatMenuShopping(false)
+    setShowFloatMenuConfig(!showFloatMenuConfig)
+    setConfigButtonActive(!showFloatMenuConfig)
+  }
+  const resetSearchComponents = ()=>{
     setInputSearchValue("")
     setMusicResults([])
     setAlbunsResult([])
     setArtistResult([])
+    setShowFloatMenuConfig(false)
+    setConfigButtonActive(false)
+  }
+
+  const handlebtnLoginClick = ()=>{
+    resetSearchComponents()
     navigate("/login/")
   }
 
+  const handlebtnLogoffClick = ()=>{
+    resetSearchComponents()
+    
+    //Faz o logoff
+    setLevel(1)
+    setLogged(false)
+  }
+
+  const handlebtnAutoimportClick = ()=>{
+    resetSearchComponents()
+    navigate("/configpage/")
+  }
+
+  const handlebtnApproveClick = ()=>{
+    resetSearchComponents()
+    navigate("/approve/")
+  }
+
+  const handlebtnEditClick = ()=>{
+    resetSearchComponents()
+    navigate("/editpage/")
+  }
+
+  const handleCartClick = ()=>{
+    setShowFloatMenuConfig(false)
+    setConfigButtonActive(false)
+    if (buyingList.length > 0){
+      setShowFloatMenuShopping(!showFloatMenuShopping)
+    }else{
+      setShowFloatMenuShopping(false)
+    }
+  }
+
+  const handleShoppingRemoveItem = (index, musica)=>{
+    if (!waitingApprove){
+      let list = buyingList
+      list.splice(index, 1)
+      setBuyingList([...list])
+    }
+  }
+
+  const handleBtnConfirmaCompra = ()=>{
+    if (waitingApprove){
+      setShowMessageCancelCompra(true)
+    }
+    if (!waitingApprove){
+      setWaitingApprove(true)
+      checkMusicApproved()
+    }
+  }
+  const handleShowMessageConfirm = (result)=>{
+    setShowMessageCancelCompra(false)
+    if (result === 'Confirm'){
+      setWaitingApprove(false)
+      cancelCheckMusicApproved()
+    }
+  }
+
+  const checkMusicApproved = ()=>{
+    //Verifica se tem musica approvada
+    interval.current = setInterval(() => { 
+      fetch(URL_API.current + "buy/approved")
+      .then(response => response.json())
+      .then(data => {
+          setMusicApproved(data.approved)
+      })
+    }, 4000);
+  }
+
+  const cancelCheckMusicApproved = ()=>{
+    clearInterval(interval.current)
+  }
+
+  useEffect(()=>{
+    if (musicApproved){
+      setMusicStack(stack=>[...stack, ...buyingList])
+      setBuyingList([])
+      setWaitingApprove(false)
+      setMusicApproved(false)
+      cancelCheckMusicApproved()
+      fetch(URL_API.current + "buy/clean", {method: 'HEAD'})
+        .catch()
+    }
+
+  }, [musicApproved])
+
   return (
     <div className="nav-bar">
+      <div className={logged?"loggedBar":null}></div>
       <div className="logo">
         <img onClick={handleLogoClick} className="logo-image" alt="Logo" src={Logo} />
         <span onClick={handleLogoClick}>GeraldoPlayer</span>
@@ -198,12 +327,35 @@ const NavBar = () => {
         </div>
         
       </div>
+      <div className={showFloatMenuShopping&&buyingList.length > 0?"extrabuttons hover": "extrabuttons"} onClick={handleCartClick}>
+        <img className="shoppingButton" src={CartIcon} alt="Shopping Button" />
+        <span className={buyingList.length > 0?"shoppingButton-counter": "shoppingButton-counter hidden"}>{buyingList.length}</span>
+      </div>
+      <div className={showFloatMenuShopping&&buyingList.length > 0?"floatingmenushopping-container":"floatingmenushoping-container hidden"}>
+        <div className="shoppingitem-container">
+          {
+            buyingList.map((item, index)=>
+            (<ShopItemDetails key={index} index={index} musica={item} onRemoveItem={handleShoppingRemoveItem}/>)) 
+          }
+        </div>
+        <div className="shoppingitembuttons-container">
+          <span className="shopping-totalspan">Total: R$ {new Intl.NumberFormat().format(buyingList.length * 1.55)}</span>
+          <button className="shopping-confirmacompra" 
+            onClick={handleBtnConfirmaCompra}>
+              {waitingApprove?"Aguardando Aprovação":"Comprar"}</button>
+        </div>
+        {showMessageCancelCompra&&<ShowMessage Title='Atenção' type="ConfirmCancel" onResult={handleShowMessageConfirm} Message="Deseja cancelar a compra?" />}
+      </div>
       <div className={configButtonActive? "nav-buttons hover" : "nav-buttons"}
-        onMouseEnter={()=>setConfigButtonActive(true)} 
-        onMouseLeave={()=>setConfigButtonActive(false)}
-        onClick={handleConfigClick}
-        >
+        onClick={handleConfigClick}>
         <img className="button-config" alt="Button config" src={SettingIcon} />
+      </div>
+      <div className={showFloatMenuConfig?"floatingmenu-container":"floatingmenu-container hidden"}>
+        <button className="floatingmenu-item" onClick={handlebtnLoginClick}>Login</button>
+        <button className="floatingmenu-item" onClick={handlebtnLogoffClick}>Logoff</button>
+        <button className="floatingmenu-item" onClick={handlebtnAutoimportClick}>AutoImport</button>
+        <button className="floatingmenu-item" onClick={handlebtnApproveClick}>Approve</button>
+        <button className="floatingmenu-item" onClick={handlebtnEditClick}>Edit</button>
       </div>
     </div>
   );

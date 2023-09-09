@@ -5,20 +5,28 @@ import playIcon from "../../assets/play.png"
 import pauseIcon from "../../assets/pause.png"
 import MusicDetails from "../MusicDetails/MusicDetails";
 import {MusicContext} from '../../context/MusicContext'
+import {ApiContext} from '../../context/ApiContext'
+import {LoginContext} from '../../context/LoginContext'
+
 
 const MediaBar = () => {
-  const URL_API = "http://localhost:3000/"
+  const {URL_API} = useContext(ApiContext)
+  const {musicStack, setMusicStack} = useContext(MusicContext)
+  const {level} = useContext(LoginContext)
+
   const [currentFormatTime, setCurrentFormatTime] = useState("00:00")
   const [durationFormatted, setDurationFormatted] = useState("00:00")
   const [currentTime, setCurrentTime] = useState(0)
   const [duration, setDuration] = useState(0)
   const [audio, setAudio] = useState()
   const [playing, setPlaying] = useState(false)
-  const {musicStack, setMusicStack} = useContext(MusicContext)
   const [currentMusic, setCurrentMusic] = useState()
   const [sliderMousePosition, setSliderMousePosition] = useState(0)
-  let musicUrl = null
+  const [volume, setVolume] = useState(100)
+
   const audioRef = createRef();
+
+  let musicUrl = null
   
   useEffect(() => {
     if (!playing && (typeof currentMusic === 'undefined' || currentMusic === null)){
@@ -28,7 +36,7 @@ const MediaBar = () => {
   
   const loadMusicStream = async (id)=>{
     try {
-      const blob = await fetch(URL_API + "music/loadmusic/" + id)
+      const blob = await fetch(URL_API.current + "music/loadmusic/" + id)
       .then(response=> response.blob())
 
       musicUrl = URL.createObjectURL(blob)
@@ -57,10 +65,12 @@ const MediaBar = () => {
     setCurrentMusic(musicStack[0])
   }
   const handlePlayPause = async()=>{
-    if (!playing){
-      handlePlay()
-    }else{
-      handlePause()
+    if (level > 1){
+      if (!playing){
+        handlePlay()
+      }else{
+        handlePause()
+      }
     }
   }
   
@@ -92,14 +102,18 @@ const MediaBar = () => {
     }
     return "00:00"
   }
-
+  const handleBtnNextSong = ()=>{
+    if (level > 1){
+      handleMusicEnded()
+    }
+  }
   const handleMusicEnded = ()=>{
-    setPlaying(false)
-    setCurrentMusic(null)
-    const stack = musicStack.slice(1)
-    setMusicStack(stack)
-    setAudio(null)
-    audioRef.current.load()
+      setPlaying(false)
+      setCurrentMusic(null)
+      const stack = musicStack.slice(1)
+      setMusicStack(stack)
+      setAudio(null)
+      audioRef.current.load()
   }
   const handleSliderMouseMove = (e)=>{
     const mouseAbsolutePosition = e.clientX - e.target.offsetLeft
@@ -107,8 +121,22 @@ const MediaBar = () => {
     setSliderMousePosition(mousePosition)
   }
   const handleSliderClick = ()=>{
-    audioRef.current.currentTime = sliderMousePosition
+    if (level > 1){
+      audioRef.current.currentTime = sliderMousePosition
+      
+    }
   }
+
+  useEffect(()=>{
+    audioRef.current.volume = volume / 100
+  }, [volume])
+
+  const handleVolumnSliderChange = (e)=>{
+    if (level > 1){
+      setVolume(e.target.value)
+    }
+  }
+
   return (
     <div className="mediabar-container">
       <audio onLoadedData={handlePlay} ref={audioRef} onTimeUpdate={handleTimeUpdate} onEnded={handleMusicEnded} src={audio} />
@@ -136,8 +164,12 @@ const MediaBar = () => {
           </div>
           <div className="next">
             <div className="overlap-group-2">
-              <img alt="Next Music" onClick={handleMusicEnded} src={nextIcon} />
+              <img alt="Next Music" onClick={handleBtnNextSong} src={nextIcon} />
             </div>
+          </div>
+          <div className="volumnContainer">
+            <span className="volumnSlider-tag">Volume</span>
+            <input className="volumnSlider" onChange={handleVolumnSliderChange} value={volume} type="range" min="0" max="100" id="sliderVolumn" />
           </div>
         </div>
       </div>
