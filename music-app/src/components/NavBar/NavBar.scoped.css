@@ -12,6 +12,14 @@
   min-width: 1200px;
 }
 
+.loggedBar{
+  bottom: 0;
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background-color: #6600ff;
+}
+
 .logo {
   display: flex;
   flex-direction: row;
@@ -92,9 +100,7 @@
   width: 100%;
   background-color: #4a4a4a;
 }
-.hidden{
-  display: none;  
-}
+
 .search-suggestions ul{
   list-style-type: none;
   margin-block-start: 1em;
@@ -159,4 +165,101 @@
 
 .navbar-buttonexplorar-text{
   font-size: 20px;
+}
+
+.floatingmenu-container{
+  background-color: rgba(255, 255, 255, 0.201);
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  padding: 5px;
+  gap: 10px;
+  right: 5px;
+  top: 65px;
+  width: 200px;
+  border-radius: 10px;
+}
+
+.floatingmenu-item{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  background-color: rgb(115, 0, 255);
+  border-radius: 10px;
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+}
+.extrabuttons{
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  border-radius: 5px;
+}
+.shoppingButton{
+  /* background-color: brown; */
+  height: 40px;
+}
+.floatingmenushopping-container{
+  background-color: rgb(85, 85, 85);
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  padding: 5px;
+  gap: 10px;
+  right: 60px;
+  top: 65px;
+  width: 300px;
+  border-radius: 10px;
+  max-height: 500px;
+}
+.shoppingitem-container{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding-top: 10px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.shoppingitembuttons-container{
+  position: relative;
+  width: 100%;
+  height: 50px;
+  min-height: 50px;
+  background-color: rgb(67, 65, 65);
+  border-radius: 0px 0px 10px 10px;
+  text-align: center;
+  justify-content: center;
+  
+}
+
+.shopping-totalspan{
+  position: absolute;
+  font-size: 28px;
+  left: 10px;
+  bottom: 10px;
+}
+
+.shopping-confirmacompra{
+  position: absolute;
+  right: 0;
+  height: 100%;
+  width: 120px;
+  border-radius: 0px 0 10px 0;
+  font-size: 18px;
+  background-color: #1e1c1c;
+  color: white;
+}
+.shoppingButton-counter{
+  position: absolute;
+  background-color: red;
+  border-radius: 8px;
+  text-align: center;
+  width: 16px;
+  top: 0px;
+  right: 0;
+}
+.hidden{
+  display: none;  
 }

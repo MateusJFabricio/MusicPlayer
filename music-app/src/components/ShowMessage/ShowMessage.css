@@ -41,9 +41,10 @@
 .button-container{
     display: flex;
     flex-direction: row-reverse;
+    gap: 10px;
     padding: 10px;
 }
-.btnConfirmar{
+.btn{
     position: relative;
     width: 100px;
     height: 30px;
@@ -53,6 +54,17 @@
     border: none;
     border-radius: 5px;
 }
-.mouseOver{
+.btnConfirmar{
+    background-color: #006FE7;
+}
+
+.btnCancelar{
+    background-color: #00e723;
+}
+.mouseOverConfirmar{
     background-color: #0044ff;
+}
+
+.mouseOverCancelar{
+    background-color: #00be1d;
 }

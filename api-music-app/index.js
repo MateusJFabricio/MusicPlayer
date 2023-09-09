@@ -36,6 +36,9 @@ app.use('/gerenciar', gerenciarRoutes)
 const loginRoutes = require('./routes/loginRoutes')
 app.use('/login', loginRoutes)
 
+const buyRoutes = require('./routes/buyRoutes')
+app.use('/buy', buyRoutes)
+
 //Rota inicial
 app.get('/', (req, res) =>{
     res.json({

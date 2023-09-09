@@ -7,17 +7,10 @@ const URL_API = "http://localhost:3000/"
 
 const LoginPage = () => {
     const navigate = useNavigate()
-    const {logged, setLogged} = useContext(LoginContext)
+    const {logged, setLogged, level, setLevel} = useContext(LoginContext)
     const [displayName, setDisplayName] = useState("")
     const [password, setPassword ] = useState("")
     const [error, setError ] = useState("")
-
-    useEffect(() => {
-      if (logged){
-        navigate("/configpage/")
-      }
-    }, [logged])
-    
 
     const handleSubmit = (e)=>{
         e.preventDefault();
@@ -38,20 +31,27 @@ const LoginPage = () => {
         .then(data => {
             if (data.error){
                 setError(data.error)
+                setLevel(1)
+                setLogged(false)
             }else{
                 setError()
+                setLevel(data.level)
                 if (data.accepted){
                     setLogged(true)
+                    setDisplayName('')
+                    setPassword('')
                 }else{
                     setError('Usuário e/ou senha incorreto')
                 }
             }
-        })
+        }).catch(setLevel(1))
     }
 
     return (
         <div className='loginpage-container'>
             <h1>Pagina de Login</h1>
+            {logged&&<h3>Você esta logado como: {level === 2 ? 'Admin' : level === 9 ? 'master': 'none'}</h3>}
+
             <form onSubmit={handleSubmit}>
                 <label>
                     <span>Usuario</span>
@@ -59,7 +59,7 @@ const LoginPage = () => {
                     <span>Senha</span>
                     <input value={password} onChange={(e)=>setPassword(e.target.value)} type="password" name='password' required/>
                 </label>
-                <button className='btn'>Login</button>
+                <button className='btnLogin'>Login</button>
                 {error&& <p className='error'>{error}</p>}
             </form>
         </div>

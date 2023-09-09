@@ -1,11 +1,6 @@
 import './MusicStackDetails.css'
-import noteIcon from '../../assets/noteicon.png'
 
 const MusicStackDetails = ({music}) => {
-
-  if (typeof music.picture === "undefined"){
-    music.picture = noteIcon
-  }
     return (
       <div className='music-stack-details'>
         <div className="stack-music-name">{music.name}</div>

@@ -97,3 +97,23 @@
     width: 50px;
     position: relative;
   }
+
+.volumnContainer{
+  position: absolute;
+  height: 60px;
+  width: 130px;
+  right: 30px;
+}
+
+.volumnSlider{
+  position: absolute;
+  width: 100%;
+  bottom: 20px;
+}
+
+.volumnSlider-tag{
+  position: absolute;
+  font-size: 15px;
+  left: 50px;
+  bottom: 0;
+}

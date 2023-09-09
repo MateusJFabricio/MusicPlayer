@@ -1,13 +1,15 @@
 import React, { useContext, useState } from 'react'
 import './MusicCard.css'
-import {MusicContext} from '../../context/MusicContext'
+import {BuyContext} from '../../context/BuyContext'
 import addIcon from '../../assets/add.png'
 const MusicCard = ({music}) => {
-  const {musicStack, setMusicStack} = useContext(MusicContext)
+  const {buyingList, setBuyingList, waitingApprove, setWaitingApprove} = useContext(BuyContext) 
   const [mouseOverButton, setMouseOverButton] = useState(false)
   // Adiciona musica no context
   const handleAddMusic = ()=>{
-    setMusicStack(stack => [...stack, music])
+    if (!waitingApprove){
+      setBuyingList(stack => [...stack, music])
+    }
   }
 
   return (

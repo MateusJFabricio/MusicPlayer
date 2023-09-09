@@ -2,16 +2,14 @@
     position: relative;
     width: 100%;
     height: 60px;
-    border-bottom: solid;
-    border-color: white;
-    border-width: 3px;
+    overflow: hidden;
 }
 
 .stack-music-name{
     position: absolute;
     left: 70px;
     top: 5px;
-    width: 250px;
+    /* width: 250px; */
     overflow: hidden;
     outline: none;
     height: 20px;
@@ -20,7 +18,7 @@
 .stack-artist{
     position: absolute;
     left: 70px;
-    width: 250px;
+    /* width: 250px; */
     top: 25px;
     color: rgb(151, 151, 151);
     outline: none;

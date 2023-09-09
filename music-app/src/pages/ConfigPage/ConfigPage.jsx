@@ -13,7 +13,7 @@ import ShowMessage from '../../components/ShowMessage/ShowMessage';
 const URL_API = "http://localhost:3000/"
 
 const ConfigPage = () => {
-  const {logged, setLogged} = useContext(LoginContext)
+  const {logged, level} = useContext(LoginContext)
   const navigate = useNavigate()
   const [showPickFile, setShowPickFile] = useState(false)
   const [showJsonView, setShowJsonView] = useState(false)
@@ -31,10 +31,10 @@ const ConfigPage = () => {
   
 
   useEffect(()=>{
-    if (!logged){
-      navigate("/")
+    if (!logged||level<5){
+      navigate("/login/")
     }
-  }, [logged])
+  }, [logged, level])
   
   const handlePickFileClick = (origem)=>{
     if (!showPickFile){
@@ -206,10 +206,6 @@ const ConfigPage = () => {
     })
   }
 
-  const handleBtnLogoff = ()=>{
-    setLogged(false)
-  }
-
   return (
     <div className='configpage-container'>
         <LoadingBar color="#f11946" ref={loadingBarRef}  shadow={true}/>
@@ -225,7 +221,6 @@ const ConfigPage = () => {
               <button className="btnSelectDir" onClick={()=>handlePickFileClick('root')}>Select Dir.</button>
               <button className="btnImport" onClick={handleAutoImportClick}>Auto-Import</button>
             </div>
-            <button className='btnLogoff' onClick={handleBtnLogoff}>Logoff</button>
             <button className={showJsonView?"btnViewJson btnSelected":"btnViewJson"} onClick={handleBtnViewJson}>View JSON</button>
             <button className="btnRun" onClick={handleSaveClick}>SAVE</button>
           </div>
