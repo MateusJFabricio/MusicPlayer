@@ -61,7 +61,7 @@
 
 .search-bar-input {
   height: 100%;
-  width: 80%;
+  width: 65%;
   font-family: "Inter-Bold", Helvetica;
   font-size: 16px;
   font-weight: 700;
@@ -74,7 +74,11 @@
   left: 60px;
   position: absolute;
 }
+.navbar-btnkeyboard{
+  position: absolute;
+  right: 65px;
 
+}
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: white;
   opacity: 1; /* Firefox */

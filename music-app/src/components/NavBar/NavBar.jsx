@@ -1,6 +1,6 @@
-import React, { useState,useContext,useEffect, useRef } from "react";
+import React, { useState,useContext,useEffect, useRef, createRef } from "react";
 import { useParams, useNavigate } from 'react-router-dom'
-import "./NavBar.scoped.css";
+import "./NavBar.css";
 
 import {LoginContext} from '../../context/LoginContext'
 import { ApiContext } from "../../context/ApiContext";
@@ -12,14 +12,16 @@ import SearchIcon from "../../assets/search.png"
 import SettingIcon from "../../assets/settings.png"
 import ExploreIcon from "../../assets/explore.png"
 import CartIcon from "../../assets/cart.png"
+import KeyboardIcon from "../../assets/keyboard.png"
 
 import SearchItem from "./../SearchItem/SearchItem";
 import ShopItemDetails from "../ShopItemDetails/ShopItemDetails";
 import ShowMessage from "../ShowMessage/ShowMessage";
+import Keyboard from "../Keyboard/Keyboard";
 
 const NavBar = () => {
   const navigate = useNavigate()
-
+  const inputRef = createRef()
   const {URL_API} = useContext(ApiContext) 
   const {buyingList, setBuyingList, waitingApprove, setWaitingApprove} = useContext(BuyContext) 
   const {logged, setLogged, level, setLevel} = useContext(LoginContext)
@@ -39,6 +41,7 @@ const NavBar = () => {
   const [suggestionItemMouseOver, setSuggestionItemMouseOver] = useState(false)
   const [configButtonActive, setConfigButtonActive] = useState(false)
   const [showMessageCancelCompra, setShowMessageCancelCompra] = useState(false)
+  const [showKeyboard, setShowKeyboard] = useState(false)
 
   useEffect(()=>{
     fetch(URL_API.current + "buy/approved")
@@ -244,6 +247,14 @@ const NavBar = () => {
 
   }, [musicApproved])
 
+  const handleKeyboardClose = ()=>{
+    setShowKeyboard(false)
+    // handleChangeSearchInput(value)
+  }
+
+  const handleKeyboardOnChange = ()=>{
+    handleChangeSearchInput(inputRef.current.value)
+  }
   return (
     <div className="nav-bar">
       <div className={logged?"loggedBar":null}></div>
@@ -257,14 +268,18 @@ const NavBar = () => {
             <img alt="Search Icon" src={SearchIcon} />
           </div>
           <input
+            ref={inputRef}
             onBlur={handleOnBlurInput}
             onChange={(e)=>handleChangeSearchInput(e.target.value)}
             onKeyDown={handleInputKeyDown}
-            value={inputSearchValue||''} 
+            // value={inputSearchValue||''} 
             className="search-bar-input" 
             type="text" 
             placeholder="Busque as suas musicas digitando aqui..."
           />
+          <div className="navbar-btnkeyboard" onClick={()=>setShowKeyboard(value=>!value)}>
+            <img src={KeyboardIcon} alt="Show keyboard" />
+          </div>
           <button className="botao-pesquisar" onClick={handleIRButton}>IR</button>
           <div className={musicResults.length > 0 || albunsResult.length > 0 || artistResult.length > 0? "search-suggestions" : "search-suggestions hidden"}>
             <ul>
@@ -357,6 +372,7 @@ const NavBar = () => {
         <button className="floatingmenu-item" onClick={handlebtnApproveClick}>Approve</button>
         <button className="floatingmenu-item" onClick={handlebtnEditClick}>Edit</button>
       </div>
+      {showKeyboard&&<Keyboard inputRef={inputRef} onClose={handleKeyboardClose} onChange={handleKeyboardOnChange}/>}
     </div>
   );
 };
